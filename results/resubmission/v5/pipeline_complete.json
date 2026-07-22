@@ -1,0 +1,9 @@
+{
+  "completed_at": "2026-07-22T03:13:42.151324+00:00",
+  "protocol": "saos_bc_onpolicy_ppo_v5_20260720",
+  "experiments": {
+    "E1": 5000,
+    "E2": 3000,
+    "E3": 10500
+  }
+}

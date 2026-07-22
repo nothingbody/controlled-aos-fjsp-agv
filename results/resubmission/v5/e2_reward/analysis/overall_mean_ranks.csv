@@ -1,0 +1,7 @@
+variant,overall_mean_rank,rank_sd,instance_budget_blocks
+R2_hv_only,3.02,1.743676622331476,50
+R4_survival_hv,3.42,1.642422302700546,50
+R1_survival_only,3.54,1.6807432758109353,50
+R5_composite,3.56,1.728040060004279,50
+R3_cmax_only,3.72,1.616749068662298,50
+R6_adaptive_weight,3.74,1.8273433375995296,50

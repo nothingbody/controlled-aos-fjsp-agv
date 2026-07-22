@@ -1,0 +1,10 @@
+Budget,target,comparator,inference_status,nested_unit,matched_instance_seed_rows,numerical_tie_tolerance,wins,ties,losses,median_difference,q1_difference,q3_difference,rank_biserial
+default,AdaptiveSAOS,AdaptiveNoBC,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,192,0,308,-0.009678276519684836,-0.031871371667478055,0.013273856042469279,-0.2841516966067864
+default,AdaptiveSAOS,AdaptivePursuit,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,415,0,85,0.14771999692148957,0.04376242751973611,0.2784978276667849,0.8356886227544911
+default,AdaptiveSAOS,FixedUCBPPO,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,205,4,291,-0.009491684183394522,-0.04384672632331588,0.026116152469929377,-0.19669630687349907
+default,AdaptiveSAOS,PPOOnly,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,287,0,213,0.024539382752216454,-0.050487908568930484,0.09927340696567016,0.23728542914171658
+default,AdaptiveSAOS,ProbabilityMatching,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,341,0,159,0.06046509324392846,-0.014585622539729198,0.17903009967024855,0.5280798403193613
+default,AdaptiveSAOS,Random,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,282,0,218,0.01684458087995644,-0.0606711972382081,0.09160320788009568,0.14855089820359282
+default,AdaptiveSAOS,RandomUCBPPO,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,240,4,256,-0.0005472529148614624,-0.03480186989927497,0.03162861774353337,0.004186408775232037
+default,AdaptiveSAOS,UCBOnly,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,179,0,321,-0.012019346704145728,-0.03315715608331099,0.01064308458396282,-0.35639121756487024
+default,AdaptiveSAOS,UniformFixed,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,279,0,221,0.013128673813720626,-0.06556597488673038,0.08265848466146897,0.10473453093812375

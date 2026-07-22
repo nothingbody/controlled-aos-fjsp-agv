@@ -1,0 +1,30 @@
+{
+  "protocol": "saos_bc_onpolicy_ppo_v5_20260720",
+  "runs": 5000,
+  "fronts_with_computable_correlation": 4992,
+  "pearson_cmax_tec": {
+    "n": 4992,
+    "median": 0.92314245372385,
+    "q1": 0.6459415917363578,
+    "q3": 0.9811542718514589,
+    "min": -0.8809663067872058,
+    "max": 0.9999999861893896
+  },
+  "spearman_cmax_tec": {
+    "n": 4992,
+    "median": 0.5696345986636782,
+    "q1": 0.1644442902246922,
+    "q3": 0.7999999999999999,
+    "min": -0.991031208965115,
+    "max": 1.0
+  },
+  "front_size": {
+    "n": 5000,
+    "median": 21.0,
+    "q1": 13.0,
+    "q3": 36.0,
+    "min": 1.0,
+    "max": 100.0
+  },
+  "interpretation": "Correlations are descriptive within-final-front diagnostics, not independent inferential observations."
+}

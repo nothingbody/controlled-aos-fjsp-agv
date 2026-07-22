@@ -1,0 +1,29 @@
+{
+  "protocol": "saos_bc_onpolicy_ppo_v5_20260720",
+  "instance_count": 50,
+  "samples_per_instance": 40,
+  "transport_time_ratio": {
+    "min": 0.29999999999999993,
+    "q25": 0.3,
+    "median": 0.3,
+    "q75": 0.3,
+    "max": 0.30000000000000004
+  },
+  "agv_energy_share": {
+    "min": 0.059122039882171185,
+    "q25": 0.0840223854523096,
+    "median": 0.0941053128078535,
+    "q75": 0.10664176966236652,
+    "max": 0.1392755488024377
+  },
+  "within_instance_cmax_energy_correlation": {
+    "min": 0.6629864999612763,
+    "q25": 0.8693230044770446,
+    "median": 0.9153954721456237,
+    "q75": 0.9440291148902551,
+    "max": 0.9775063024203715
+  },
+  "all_speed_energy_orderings_valid": true,
+  "all_objectives_finite": true,
+  "interpretation": "Construct diagnostics from random feasible schedules; these are a pre-run validity audit, not algorithm-performance results."
+}

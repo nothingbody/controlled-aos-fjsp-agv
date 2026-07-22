@@ -1,0 +1,74 @@
+# Python environments and caches
+.venv
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary and local-only files
+*.tmp
+*.temp
+*.bak
+*.pid
+*.lock
+
+# Build artifacts that can be regenerated
+build/
+dist/
+*.egg-info/
+
+# Non-formal runs and interrupted/migration artifacts
+results/**/smoke*/
+results/_smoke*/
+results/_snapshot_check.*
+results/**/*interrupted*.log
+results/**/*migrated*.log
+
+# Private manuscript and submission artifacts
+SCI_Paper/COR_submission_*/
+SCI_Paper/_base.docx
+SCI_Paper/cover_letter*
+SCI_Paper/response_to_reviewers*
+SCI_Paper/RESPONSE_TO_REVIEWERS_RESUBMISSION.md
+SCI_Paper/GRL_EA_paper_revision.md
+SCI_Paper/SA_AOS_paper_resubmission.md
+SCI_Paper/SA_AOS_SUBMISSION_REVISION.*
+SCI_Paper/graphical_abstract.*
+SCI_Paper/highlights.txt
+SCI_Paper/revision_submission_checklist.md
+SCI_Paper/generate_ieee_word.py
+results/resubmission/figures/
+
+# Manuscript-production scripts are private
+scripts/build_final_word.py
+scripts/build_revision_submission_docs.py
+scripts/generate_convergence_gantt.py
+scripts/plot_final_paper.py
+scripts/plot_final_polished.py
+scripts/plot_graphical_abstract.py
+scripts/plot_publication_figures.py
+scripts/plot_publication_v2.py
+scripts/plot_publication_v3.py
+scripts/plot_publication_v4.py
+scripts/plot_resubmission_method_figures.py
+scripts/plot_revision_summary_figures.py
+
+# The formal CSVs, Pareto fronts, analysis outputs, and run logs under
+# results/resubmission/v5 and results/resubmission/v6_mechanism are
+# intentionally versioned for reproducibility.

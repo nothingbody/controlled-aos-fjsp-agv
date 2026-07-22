@@ -1,0 +1,6 @@
+Budget,target,comparator,independent_unit,instances,numerical_tie_tolerance,wins,ties,losses,median_difference,bootstrap_ci95_low,bootstrap_ci95_high,rank_biserial,wilcoxon_statistic,p_raw,comparison_family,p_holm,holm_family_size,significant_0_05
+default,R5_composite,R1_survival_only,instance,50,1e-12,27,0,23,0.001993477180395109,-0.005635686898731951,0.010570731473606543,0.03372549019607843,616.0,0.8407540567937097,main_target_vs_comparators_all_budgets,1.0,5,False
+default,R5_composite,R2_hv_only,instance,50,1e-12,19,0,31,-0.007888864187490907,-0.017234444112923686,0.0040640980217988565,-0.14823529411764705,543.0,0.3673427625704484,main_target_vs_comparators_all_budgets,1.0,5,False
+default,R5_composite,R3_cmax_only,instance,50,1e-12,25,0,25,0.0005732027640679149,-0.01586827884186537,0.009455864253197888,0.021176470588235293,624.0,0.9010179923007229,main_target_vs_comparators_all_budgets,1.0,5,False
+default,R5_composite,R4_survival_hv,instance,50,1e-12,25,0,25,-0.00026630753174244903,-0.009364334803229069,0.007460181697120483,-0.06666666666666667,595.0,0.6876822045635382,main_target_vs_comparators_all_budgets,1.0,5,False
+default,R5_composite,R6_adaptive_weight,instance,50,1e-12,26,0,24,0.004051988014614705,-0.015405378390735969,0.012439459632969595,0.01803921568627451,626.0,0.916185835362695,main_target_vs_comparators_all_budgets,1.0,5,False

@@ -1,0 +1,1302 @@
+[
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk01.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      58.99342376823745,
+      1736.7177669094456,
+      12.999999999999979
+    ],
+    "nadir": [
+      101.03997590218302,
+      2422.652194423551,
+      57.00000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 4612,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk02.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      46.24561154657947,
+      1586.4642396676481,
+      0.9999999999999929
+    ],
+    "nadir": [
+      83.52674659006568,
+      2349.4739151884437,
+      36.00000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 2907,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk03.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      341.5022188268886,
+      11453.556342774324,
+      12.999999999999915
+    ],
+    "nadir": [
+      684.9386835458836,
+      19883.599827766273,
+      313.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 4038,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk04.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      97.81369390959567,
+      3553.5677932634717,
+      35.99999999999996
+    ],
+    "nadir": [
+      182.25289757358314,
+      4993.023541184992,
+      135.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 3548,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk05.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      209.17107662672836,
+      6299.905380747835,
+      0.9999999999999716
+    ],
+    "nadir": [
+      304.7183596749826,
+      7379.25583915499,
+      144.00000000000003
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 2214,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk06.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      142.4287756079452,
+      3996.826118190709,
+      15.0
+    ],
+    "nadir": [
+      307.7903783483675,
+      9573.986543880128,
+      100.00000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 4930,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk07.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      200.06052431266184,
+      5806.053220391359,
+      1.9999999999999716
+    ],
+    "nadir": [
+      389.1510770367289,
+      8948.044317776019,
+      192.99999999999997
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 2536,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk08.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      707.1143005389292,
+      28695.055791870982,
+      522.9999999999998
+    ],
+    "nadir": [
+      1065.72334121292,
+      34036.12727220661,
+      584.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 610,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk09.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      625.4280038455062,
+      26607.501711047284,
+      24.999999999999943
+    ],
+    "nadir": [
+      1133.3181527106099,
+      39115.649238531594,
+      462.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 3634,
+    "runs": 60
+  },
+  {
+    "dataset": "Brandimarte",
+    "instance": "Mk10.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      538.6229485174298,
+      21634.66530897854,
+      213.0
+    ],
+    "nadir": [
+      832.3580833244756,
+      27609.419925778384,
+      298.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1721,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la01.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      751.5097233897053,
+      23862.39821462568,
+      71.99999999999955
+    ],
+    "nadir": [
+      1312.554569845349,
+      28640.126492590643,
+      213.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 923,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la02.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      785.0564866432021,
+      21377.84785348528,
+      171.99999999999955
+    ],
+    "nadir": [
+      1299.706362616103,
+      25270.24192772125,
+      357.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1770,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la03.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      668.1928205866258,
+      19397.893033867476,
+      86.99999999999955
+    ],
+    "nadir": [
+      1308.977147930492,
+      23810.33000394304,
+      213.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1718,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la04.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      727.6207984926265,
+      26186.25381956923,
+      78.99999999999955
+    ],
+    "nadir": [
+      1270.465286434323,
+      31699.670039431418,
+      243.00000000000006
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1505,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la05.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      637.5979730202746,
+      22768.03498225845,
+      125.9999999999996
+    ],
+    "nadir": [
+      1254.4771770563693,
+      28979.52031947246,
+      291.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1903,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la06.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1008.2143468049833,
+      31926.447865092086,
+      74.9999999999992
+    ],
+    "nadir": [
+      2191.198475318046,
+      41620.03025658822,
+      269.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1240,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la07.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1013.1492894613567,
+      36610.990793475314,
+      21.999999999999545
+    ],
+    "nadir": [
+      1431.4390963266624,
+      40639.744834506564,
+      250.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1745,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la08.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1074.257912407912,
+      35345.52634200787,
+      176.99999999999955
+    ],
+    "nadir": [
+      2124.362687254165,
+      45556.58869950572,
+      486.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 2211,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la09.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1078.0920060301146,
+      42170.39298743803,
+      48.999999999999545
+    ],
+    "nadir": [
+      2083.71782374531,
+      51144.93853598228,
+      237.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1433,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la10.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1052.702157262912,
+      34279.67739626724,
+      89.99999999999966
+    ],
+    "nadir": [
+      1746.2373236517733,
+      41650.759387938015,
+      599.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 3184,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la11.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1403.871735550359,
+      52148.17288877971,
+      97.99999999999932
+    ],
+    "nadir": [
+      2557.87810549783,
+      62413.136784625574,
+      441.0000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1680,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la12.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1157.9287000606244,
+      36086.63639205008,
+      72.99999999999955
+    ],
+    "nadir": [
+      2139.0067508741517,
+      42860.44783543742,
+      362.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1748,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la13.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1278.695102505412,
+      45120.62391551368,
+      23.999999999999318
+    ],
+    "nadir": [
+      2304.3249879639693,
+      54649.161235803746,
+      390.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1833,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la14.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1316.7023543386063,
+      50860.643502273175,
+      199.99999999999932
+    ],
+    "nadir": [
+      2266.502608814622,
+      59695.53180262637,
+      369.0000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1645,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la15.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1520.4879943920525,
+      48407.516894763176,
+      29.99999999999909
+    ],
+    "nadir": [
+      2423.494121922473,
+      57874.89038730699,
+      198.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1356,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la16.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1471.8746128983369,
+      52370.37351608768,
+      161.99999999999932
+    ],
+    "nadir": [
+      2527.017941865811,
+      66892.81782336379,
+      292.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1219,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la17.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1182.8601198303732,
+      50476.9813590393,
+      280.9999999999994
+    ],
+    "nadir": [
+      2288.7374914874,
+      67931.19233948081,
+      398.0000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 854,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la18.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1316.779296310251,
+      59959.88569876528,
+      209.99999999999926
+    ],
+    "nadir": [
+      2452.064697913827,
+      77835.97840337218,
+      329.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1140,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la19.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1441.0951509818847,
+      54654.41762921214,
+      173.99999999999915
+    ],
+    "nadir": [
+      2418.9401402669446,
+      70295.51533893966,
+      426.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1627,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la20.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1384.171203795532,
+      52096.85868339903,
+      150.99999999999932
+    ],
+    "nadir": [
+      2389.57351553354,
+      68612.78088778924,
+      411.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1763,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la21.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1850.9346619441606,
+      82297.71832183035,
+      173.9999999999992
+    ],
+    "nadir": [
+      2952.849546877885,
+      100114.5218626754,
+      304.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 952,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la22.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1672.418128082253,
+      81446.34516035512,
+      203.99999999999932
+    ],
+    "nadir": [
+      2360.566253591206,
+      93549.70773794042,
+      350.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 792,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la23.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2068.4261442803117,
+      91261.74601985299,
+      185.9999999999992
+    ],
+    "nadir": [
+      3318.8616825985073,
+      113429.18557822403,
+      380.0000000000002
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 884,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la24.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1828.1397734937514,
+      76789.9497192334,
+      229.9999999999991
+    ],
+    "nadir": [
+      3200.4415161235743,
+      98160.03125203458,
+      390.0000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 936,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la25.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      1736.3513054601083,
+      80099.21655447315,
+      45.99999999999932
+    ],
+    "nadir": [
+      2629.2627567162763,
+      95283.0964335242,
+      369.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1212,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la26.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2277.167356790547,
+      114902.3545458433,
+      79.99999999999932
+    ],
+    "nadir": [
+      3641.436368483967,
+      136858.53474597528,
+      386.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1080,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la27.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2468.5184368947994,
+      124660.43374928008,
+      68.99999999999955
+    ],
+    "nadir": [
+      3425.411437409366,
+      140105.38958606505,
+      293.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 861,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la28.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2475.6772077752703,
+      105171.526442427,
+      70.99999999999932
+    ],
+    "nadir": [
+      3576.724209045656,
+      124316.82785887735,
+      521.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1209,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la29.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2130.419050524429,
+      102578.36647040743,
+      97.99999999999909
+    ],
+    "nadir": [
+      3015.799467457809,
+      118498.94170913467,
+      312.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 903,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la30.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2582.7915778376355,
+      116531.18625391573,
+      117.99999999999932
+    ],
+    "nadir": [
+      4201.2507863475685,
+      142936.42074374438,
+      336.00000000000045
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1027,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la31.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      3380.425241592082,
+      153137.06294014514,
+      50.999999999999545
+    ],
+    "nadir": [
+      4962.9044464630815,
+      178607.33365208155,
+      564.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1048,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la32.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      3592.3488604499576,
+      173056.33653997927,
+      66.99999999999864
+    ],
+    "nadir": [
+      4654.2600174234285,
+      192035.7463535994,
+      528.0000000000002
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 1033,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la33.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      3105.133347977969,
+      147257.86682021082,
+      90.99999999999864
+    ],
+    "nadir": [
+      4770.003910154626,
+      175799.32861044153,
+      506.9999999999998
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 816,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la34.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      3265.5768734940716,
+      153528.18488617378,
+      383.9999999999991
+    ],
+    "nadir": [
+      4732.801307868127,
+      178395.0583023189,
+      639.0000000000002
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 821,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la35.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      3501.4395924012747,
+      164430.92423544027,
+      430.9999999999984
+    ],
+    "nadir": [
+      4705.461714260796,
+      186343.76953515812,
+      771.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 930,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la36.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2822.2060335936103,
+      159424.0892860027,
+      170.99999999999886
+    ],
+    "nadir": [
+      4421.113792542816,
+      201721.67338581447,
+      427.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 668,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la37.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      3007.1995155772615,
+      160477.15043129277,
+      213.99999999999886
+    ],
+    "nadir": [
+      5035.959353165888,
+      209764.24610561645,
+      362.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 705,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la38.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2730.5265294928663,
+      140549.57245559976,
+      217.9999999999991
+    ],
+    "nadir": [
+      4545.631750241745,
+      187679.2094422708,
+      424.0000000000001
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 664,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la39.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2765.6458785570376,
+      143802.8304316032,
+      459.99999999999864
+    ],
+    "nadir": [
+      4579.989145102244,
+      193997.10360832085,
+      595.0
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 867,
+    "runs": 60
+  },
+  {
+    "dataset": "Hurink_edata",
+    "instance": "la40.fjs",
+    "objective_indices": [
+      0,
+      1,
+      2
+    ],
+    "ideal": [
+      2712.9120648304765,
+      146901.27441284858,
+      321.99999999999864
+    ],
+    "nadir": [
+      4304.880036081092,
+      192213.13490456453,
+      505.9999999999999
+    ],
+    "reference": [
+      1.1,
+      1.1,
+      1.1
+    ],
+    "pooled_unique_points": 832,
+    "runs": 60
+  }
+]

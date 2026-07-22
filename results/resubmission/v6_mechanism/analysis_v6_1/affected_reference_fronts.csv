@@ -1,0 +1,5 @@
+dataset,instance,variant,Budget,seed,front_points,outside_reference_points,inside_reference_points,outside_dimension_counts,outside_dimension_maxima,front_sha256,amended_fixed_box_hv_valid
+Brandimarte,Mk05.fjs,EnhancedNoBC_R16,100,51,51,1,50,"{""Cmax"": 1, ""Energy"": 0, ""Workload"": 0}","{""Cmax"": 1.1114392809840623, ""Energy"": null, ""Workload"": null}",0418566a6257c6f1a1f2113ac529e790fbf91dbe27f6021825e46dfd32f67781,True
+Brandimarte,Mk10.fjs,UCBOnly,200,46,30,1,29,"{""Cmax"": 0, ""Energy"": 0, ""Workload"": 1}","{""Cmax"": null, ""Energy"": null, ""Workload"": 1.1470588235294106}",eaf30d7cffe8ff922268b8599b776c2e0cbf655a32bd1e968abceae975e47547,True
+Brandimarte,Mk10.fjs,EnhancedBC_R16,200,46,34,6,28,"{""Cmax"": 0, ""Energy"": 0, ""Workload"": 6}","{""Cmax"": null, ""Energy"": null, ""Workload"": 1.4558823529411744}",43afd6128a67882e42b278a9cf5719df12b4492d2466621874214a2c99ec9e5c,True
+Brandimarte,Mk10.fjs,EnhancedBC_R32,200,46,39,4,35,"{""Cmax"": 1, ""Energy"": 0, ""Workload"": 3}","{""Cmax"": 1.4153106508832372, ""Energy"": null, ""Workload"": 1.3235294117647043}",fa323758c3560e01d980fd52728f0adb8113f0559fb8fa2e8b19b55818a884ab,True

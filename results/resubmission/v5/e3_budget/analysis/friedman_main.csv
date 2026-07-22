@@ -1,0 +1,4 @@
+Budget,independent_blocks,methods,friedman_statistic,friedman_p
+50,50,"[""AdaptiveNoBC"",""AdaptiveSAOS"",""FixedUCBPPO"",""PPOOnly"",""RandomUCBPPO"",""UCBOnly"",""UniformFixed""]",62.88000000000011,1.1676849350262044e-11
+100,50,"[""AdaptiveNoBC"",""AdaptiveSAOS"",""FixedUCBPPO"",""PPOOnly"",""RandomUCBPPO"",""UCBOnly"",""UniformFixed""]",52.04571428571444,1.8257596311854453e-09
+200,50,"[""AdaptiveNoBC"",""AdaptiveSAOS"",""FixedUCBPPO"",""PPOOnly"",""RandomUCBPPO"",""UCBOnly"",""UniformFixed""]",25.019999999999982,0.00033855534363186216

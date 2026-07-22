@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: >-
+  If you use this code or the archived experiment results, please cite the
+  associated manuscript and this repository release.
+title: >-
+  Controlled evaluation of stage-aware adaptive operator selection under
+  finite budgets for multi-objective flexible job-shop scheduling with AGVs
+type: software
+authors:
+  - family-names: Wang
+    given-names: Qingyou
+version: 6.0.1
+date-released: 2026-07-22
+repository-code: https://github.com/nothingbody/controlled-aos-fjsp-agv
+keywords:
+  - adaptive operator selection
+  - flexible job-shop scheduling
+  - automated guided vehicles
+  - NSGA-III
+  - proximal policy optimization
+  - behavior cloning
+  - multi-armed bandit

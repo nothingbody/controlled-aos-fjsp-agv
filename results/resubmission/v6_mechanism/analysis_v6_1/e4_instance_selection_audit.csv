@@ -1,0 +1,11 @@
+dataset,instance,jobs,machines,operations,operation_count_percentile_within_family,selection_rationale
+Brandimarte,Mk01.fjs,10,6,55,0.0,pre-outcome coverage of the lower operation-count stratum; selection did not use controller performance
+Brandimarte,Mk03.fjs,15,8,150,61.111111111111114,pre-outcome coverage of the central operation-count stratum; selection did not use controller performance
+Brandimarte,Mk05.fjs,15,4,106,44.44444444444444,pre-outcome coverage of the central operation-count stratum; selection did not use controller performance
+Brandimarte,Mk08.fjs,20,10,225,77.77777777777777,pre-outcome coverage of the upper operation-count stratum; selection did not use controller performance
+Brandimarte,Mk10.fjs,20,15,240,94.44444444444444,pre-outcome coverage of the upper operation-count stratum; selection did not use controller performance
+Hurink_edata,la01.fjs,10,5,50,5.128205128205129,pre-outcome coverage of the lower operation-count stratum; selection did not use controller performance
+Hurink_edata,la10.fjs,15,5,75,17.94871794871795,pre-outcome coverage of the lower operation-count stratum; selection did not use controller performance
+Hurink_edata,la20.fjs,10,10,100,37.17948717948718,pre-outcome coverage of the central operation-count stratum; selection did not use controller performance
+Hurink_edata,la30.fjs,20,10,200,69.23076923076923,pre-outcome coverage of the upper operation-count stratum; selection did not use controller performance
+Hurink_edata,la40.fjs,15,15,225,82.05128205128206,pre-outcome coverage of the upper operation-count stratum; selection did not use controller performance

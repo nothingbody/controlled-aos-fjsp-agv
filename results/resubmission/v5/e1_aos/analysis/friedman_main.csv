@@ -1,0 +1,2 @@
+Budget,independent_blocks,methods,friedman_statistic,friedman_p
+default,50,"[""AdaptiveNoBC"",""AdaptivePursuit"",""AdaptiveSAOS"",""FixedUCBPPO"",""PPOOnly"",""ProbabilityMatching"",""Random"",""RandomUCBPPO"",""UCBOnly"",""UniformFixed""]",181.98981818181824,1.946117394098796e-34

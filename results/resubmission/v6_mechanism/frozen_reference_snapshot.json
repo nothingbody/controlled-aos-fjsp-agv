@@ -1,0 +1,35 @@
+{
+  "snapshot_protocol": "saos_v6_fixed_v5_reference_20260722",
+  "snapshot_sha256": "eddfdcb87b1b076bfb07e106b7b6da57f6afc2b40ad9fa6b9daf474973db36b2",
+  "blocks": 20,
+  "reference_points": {
+    "Brandimarte/Mk01.fjs/g100": 218,
+    "Brandimarte/Mk03.fjs/g100": 170,
+    "Brandimarte/Mk05.fjs/g100": 72,
+    "Brandimarte/Mk08.fjs/g100": 23,
+    "Brandimarte/Mk10.fjs/g100": 54,
+    "Hurink_edata/la01.fjs/g100": 28,
+    "Hurink_edata/la10.fjs/g100": 125,
+    "Hurink_edata/la20.fjs/g100": 72,
+    "Hurink_edata/la30.fjs/g100": 22,
+    "Hurink_edata/la40.fjs/g100": 34,
+    "Brandimarte/Mk01.fjs/g200": 312,
+    "Brandimarte/Mk03.fjs/g200": 166,
+    "Brandimarte/Mk05.fjs/g200": 101,
+    "Brandimarte/Mk08.fjs/g200": 19,
+    "Brandimarte/Mk10.fjs/g200": 50,
+    "Hurink_edata/la01.fjs/g200": 26,
+    "Hurink_edata/la10.fjs/g200": 128,
+    "Hurink_edata/la20.fjs/g200": 64,
+    "Hurink_edata/la30.fjs/g200": 92,
+    "Hurink_edata/la40.fjs/g200": 34
+  },
+  "source_manifest": {
+    "e1_normalization_sha256": "3fb32cab4cd9a9d0d757faff911bd772e19eee313c9cc5b8ac662eb1efef827c",
+    "e3_normalization_sha256": "ec2d693c0faab9a81582b1ada0118f8327d8f99c43af184e782f52aed7105dce",
+    "e1_runs_sha256": "f10112be08e4e64ce2649b7c9dbb9f8356090fe723412a00734eee59956bd497",
+    "e3_runs_sha256": "a38c8c25cf6d6a75dd414c8c684bc97fda9cb3297acf8b95be4dd4276634f6f0",
+    "front_count": 1700,
+    "front_composite_sha256": "b739e41ad8f7146211f409bc1955b1e07b3913907da6ec7c7b03b08426c3bcee"
+  }
+}

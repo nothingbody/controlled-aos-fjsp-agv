@@ -1,0 +1,6 @@
+Budget,target,comparator,inference_status,nested_unit,matched_instance_seed_rows,numerical_tie_tolerance,wins,ties,losses,median_difference,q1_difference,q3_difference,rank_biserial
+default,R5_composite,R1_survival_only,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,245,0,255,-0.001303718507058016,-0.05940772010874973,0.054174439470490304,-0.023345309381237526
+default,R5_composite,R2_hv_only,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,244,0,256,-0.003558378544464391,-0.05587417276319556,0.05151839520738344,-0.0368063872255489
+default,R5_composite,R3_cmax_only,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,257,0,243,0.003916532626938252,-0.05834747791753475,0.05888727723744275,0.012678642714570858
+default,R5_composite,R4_survival_hv,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,233,2,265,-0.005308481595943493,-0.04281897834534354,0.03955302706486882,-0.05180642409316625
+default,R5_composite,R6_adaptive_weight,descriptive_only_no_independence_assumed,instance_seed,500,1e-12,246,0,254,-0.0006697089362064368,-0.05152358471192897,0.049489867931536535,-0.008974051896207584

@@ -1,0 +1,11 @@
+{
+  "rows": 1100,
+  "unique_keys": 1100,
+  "protocol": "saos_mechanism_robustness_v6_20260722",
+  "code_hash": "874fdeb8086db8bce29509efa245391190910982ad002a618ebf19fa7f674a22",
+  "design_hash": "b445fd40e37efa80a7579dfcb9baf963f848a910a61a35855bf741ab4d8fefc8",
+  "input_hash": "ce8ed461121e67013595c8cdf1f4d7e9a4125afd5fd5c2d3fda7ece48f21719c",
+  "front_manifest_sha256": "6add7c98069a9b1c6fac27e4387b6cf75c3a2f43e1713c54f589606aa9da4d72",
+  "completed_at": "2026-07-22T17:40:54+0800",
+  "elapsed_seconds_this_invocation": 3722.388175725937
+}
