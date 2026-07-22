@@ -7,6 +7,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
+import copy
 from typing import Optional
 
 
@@ -89,14 +90,19 @@ class RolloutBuffer:
         self.rewards = []
         self.values = []
         self.dones = []
+        self.policy_versions = []
 
-    def store(self, state, action, log_prob, reward, value, done=False):
+    def store(
+        self, state, action, log_prob, reward, value, done=False,
+        policy_version: int = 0,
+    ):
         self.states.append(state)
         self.actions.append(action)
         self.log_probs.append(log_prob)
         self.rewards.append(reward)
         self.values.append(value)
         self.dones.append(done)
+        self.policy_versions.append(int(policy_version))
 
     def clear(self):
         self.states.clear()
@@ -105,6 +111,7 @@ class RolloutBuffer:
         self.rewards.clear()
         self.values.clear()
         self.dones.clear()
+        self.policy_versions.clear()
 
     def __len__(self):
         return len(self.states)
@@ -133,6 +140,11 @@ class PPOAgent:
         self.batch_size = batch_size
         self.entropy_coef = entropy_coef
         self.value_coef = value_coef
+        self.state_dim = int(state_dim)
+        self.action_dim = int(action_dim)
+        self.hidden = 128
+        self.lr = float(lr)
+        self.policy_version = 0
 
         if network_seed is None:
             self.policy = ActorCritic(state_dim, action_dim).to(self.device)
@@ -180,6 +192,7 @@ class PPOAgent:
             reward=reward,
             value=value.item(),
             done=done,
+            policy_version=self.policy_version,
         )
         return action.item()
 
@@ -334,6 +347,14 @@ class PPOAgent:
             self.buffer.clear()
             return {}
 
+        behavior_versions = set(int(value) for value in self.buffer.policy_versions)
+        if behavior_versions != {int(self.policy_version)}:
+            raise RuntimeError(
+                "PPO rollout mixes behavior-policy versions: "
+                f"buffer={sorted(behavior_versions)} current={self.policy_version}"
+            )
+        behavior_policy_version = int(self.policy_version)
+
         # 计算GAE优势估计
         last_value = 0.0 if last_state is None else self.predict_value(last_state)
         advantages, returns = self._compute_gae(last_value=last_value)
@@ -429,6 +450,9 @@ class PPOAgent:
             else 0.0
         )
 
+        self.policy_version += 1
+        stats['behavior_policy_version'] = behavior_policy_version
+        stats['updated_policy_version'] = int(self.policy_version)
         self.buffer.clear()
         return stats
 
@@ -459,9 +483,78 @@ class PPOAgent:
         torch.save({
             'policy': self.policy.state_dict(),
             'optimizer': self.optimizer.state_dict(),
+            'policy_version': int(self.policy_version),
         }, path)
 
     def load(self, path: str):
         checkpoint = torch.load(path, map_location=self.device)
         self.policy.load_state_dict(checkpoint['policy'])
         self.optimizer.load_state_dict(checkpoint['optimizer'])
+        self.policy_version = int(checkpoint.get('policy_version', 0))
+        self.buffer.clear()
+
+    def export_training_state(self) -> dict:
+        """Return a detached full PPO state for audited cross-episode training."""
+        if len(self.buffer) != 0:
+            raise RuntimeError("cannot export PPO state with a nonempty rollout buffer")
+        return {
+            "policy": {
+                name: tensor.detach().cpu().clone()
+                for name, tensor in self.policy.state_dict().items()
+            },
+            "optimizer": copy.deepcopy(self.optimizer.state_dict()),
+            "policy_version": int(self.policy_version),
+            "architecture": {
+                "state_dim": self.state_dim,
+                "action_dim": self.action_dim,
+                "hidden": self.hidden,
+            },
+            "hyperparameters": {
+                "lr": self.lr,
+                "gamma": float(self.gamma),
+                "gae_lambda": float(self.gae_lambda),
+                "clip_range": float(self.clip_range),
+                "n_epochs": int(self.n_epochs),
+                "batch_size": int(self.batch_size),
+                "entropy_coef": float(self.entropy_coef),
+                "value_coef": float(self.value_coef),
+            },
+        }
+
+    def load_training_state(self, state: dict, *, load_optimizer: bool) -> None:
+        """Load parameters and optionally Adam moments; never load rollouts or RNGs."""
+        architecture = dict(state.get("architecture", {}))
+        expected = {"state_dim": self.state_dim, "action_dim": self.action_dim}
+        observed = {key: int(architecture.get(key, -1)) for key in expected}
+        if observed != expected:
+            raise ValueError(
+                f"incompatible PPO architecture: observed={observed} expected={expected}"
+            )
+        if int(architecture.get("hidden", -1)) != self.hidden:
+            raise ValueError(
+                f"incompatible PPO hidden width: {architecture.get('hidden')} "
+                f"!= {self.hidden}"
+            )
+        hyperparameters = dict(state.get("hyperparameters", {}))
+        expected_hyperparameters = {
+            "lr": self.lr,
+            "gamma": float(self.gamma),
+            "gae_lambda": float(self.gae_lambda),
+            "clip_range": float(self.clip_range),
+            "n_epochs": int(self.n_epochs),
+            "batch_size": int(self.batch_size),
+            "entropy_coef": float(self.entropy_coef),
+            "value_coef": float(self.value_coef),
+        }
+        mismatches = {
+            key: {"observed": hyperparameters.get(key), "expected": value}
+            for key, value in expected_hyperparameters.items()
+            if hyperparameters.get(key) != value
+        }
+        if mismatches:
+            raise ValueError(f"incompatible PPO hyperparameters: {mismatches}")
+        self.policy.load_state_dict(state["policy"], strict=True)
+        if load_optimizer:
+            self.optimizer.load_state_dict(copy.deepcopy(state["optimizer"]))
+        self.policy_version = int(state.get("policy_version", 0))
+        self.buffer.clear()

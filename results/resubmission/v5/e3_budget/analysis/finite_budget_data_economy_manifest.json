@@ -1,0 +1,49 @@
+{
+  "source": "D:\\Aproject\\\u7269\u6d41\\controlled-aos-fjsp-agv-public\\results\\resubmission\\v5\\e3_budget\\runs.csv",
+  "source_rows": 10500,
+  "audited_PPO_rows": 6000,
+  "rollout_length": 16,
+  "formula": {
+    "controlled_actions": "max(0, G - T_c)",
+    "action_effective_updates": "max(0, floor((n_PPO - 1) / L))",
+    "terminal_inclusive_updates": "floor(n_PPO/L) + I[n_PPO mod L >= 2]"
+  },
+  "saos_summary": [
+    {
+      "variant": "AdaptiveSAOS",
+      "Budget": 50,
+      "runs": 500,
+      "median_transition_generation": 35.0,
+      "median_PPO_controlled_actions": 15.0,
+      "median_terminal_inclusive_updates": 1.0,
+      "median_action_effective_updates": 0.0,
+      "median_consumed_transitions": 15.0,
+      "runs_with_zero_action_effective_updates": 490,
+      "runs_with_terminal_only_update": 498
+    },
+    {
+      "variant": "AdaptiveSAOS",
+      "Budget": 100,
+      "runs": 500,
+      "median_transition_generation": 70.0,
+      "median_PPO_controlled_actions": 30.0,
+      "median_terminal_inclusive_updates": 2.0,
+      "median_action_effective_updates": 1.0,
+      "median_consumed_transitions": 30.0,
+      "runs_with_zero_action_effective_updates": 0,
+      "runs_with_terminal_only_update": 488
+    },
+    {
+      "variant": "AdaptiveSAOS",
+      "Budget": 200,
+      "runs": 500,
+      "median_transition_generation": 71.0,
+      "median_PPO_controlled_actions": 129.0,
+      "median_terminal_inclusive_updates": 8.0,
+      "median_action_effective_updates": 8.0,
+      "median_consumed_transitions": 128.0,
+      "runs_with_zero_action_effective_updates": 0,
+      "runs_with_terminal_only_update": 468
+    }
+  ]
+}
