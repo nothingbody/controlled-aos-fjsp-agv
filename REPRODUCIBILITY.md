@@ -5,7 +5,7 @@
 ```bash
 git clone https://github.com/nothingbody/controlled-aos-fjsp-agv.git
 cd controlled-aos-fjsp-agv
-git checkout v8.1.0-reproducibility
+git checkout v8.1.1-reproducibility
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt -c constraints-postcampaign-20260723.txt
@@ -18,7 +18,7 @@ On Windows PowerShell, activate the environment with
 ## 2. Download the E5 raw assets
 
 Download the three assets from
-[`v8.1.0-reproducibility`](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v8.1.0-reproducibility)
+[`v8.1.1-reproducibility`](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v8.1.1-reproducibility)
 into one directory:
 
 - `e5-v7-fronts-6000.tar.gz`
@@ -96,9 +96,10 @@ analysis outputs, and the checkpoint evidence needed by the reported E5
 audit. Manuscript files, submission packages, response letters, graphical
 abstracts, and journal-production assets are intentionally excluded.
 
-No root open-source license has yet been granted for the original project
-code. The bundled third-party benchmark files retain their upstream license
-and attribution.
+The original project code and documentation are released under the root MIT
+License. The bundled third-party benchmark files retain their upstream MIT
+license, copyright, and attribution as documented in
+`THIRD_PARTY_NOTICES.md`.
 
 The Pareto fronts are Python pickle files and the checkpoint objects are
 loaded by PyTorch. Both formats can execute code during deserialization. Do

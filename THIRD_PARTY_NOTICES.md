@@ -30,7 +30,8 @@ comparisons but are not used in the reported 18,500-run experiment.
 
 ## Project licensing boundary
 
-The upstream MIT license applies to the third-party benchmark files. It does
-not automatically license the original source code, manuscript, logs, or
-derived experiment results in this repository. No open-source license has yet
-been selected for those original materials.
+The upstream MIT license and SchedulingLab copyright apply to the third-party
+benchmark files. The repository's root MIT License separately covers the
+original project code and documentation owned by Qingyou Wang; it does not
+replace or remove the upstream notices for the benchmark files. Manuscript and
+journal-submission files are not distributed in this repository.

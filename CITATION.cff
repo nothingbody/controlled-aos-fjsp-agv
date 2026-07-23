@@ -9,9 +9,12 @@ type: software
 authors:
   - family-names: Wang
     given-names: Qingyou
-version: 8.1.0
+    affiliation: Hubei University of Automotive Technology
+    orcid: https://orcid.org/0009-0003-7030-3509
+version: 8.1.1
 date-released: 2026-07-23
 repository-code: https://github.com/nothingbody/controlled-aos-fjsp-agv
+license: MIT
 keywords:
   - adaptive operator selection
   - flexible job-shop scheduling

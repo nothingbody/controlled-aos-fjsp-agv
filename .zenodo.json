@@ -1,0 +1,26 @@
+{
+  "title": "Finite-data limits of generation-level learned operator selection in multi-objective FJSP with AGVs",
+  "description": "Executable source code, frozen protocols, benchmark inputs, audited result ledgers, Pareto fronts, evaluation journals, checkpoint evidence, and analysis outputs for a 26,950-run controlled evaluation of generation-level adaptive operator selection, including 2,000 cross-instance PPO pretraining episodes. Manuscript and journal-submission files are intentionally excluded.",
+  "creators": [
+    {
+      "name": "Wang, Qingyou",
+      "orcid": "0009-0003-7030-3509",
+      "affiliation": "Hubei University of Automotive Technology"
+    }
+  ],
+  "version": "8.1.1",
+  "access_right": "open",
+  "license": "mit",
+  "upload_type": "software",
+  "language": "eng",
+  "keywords": [
+    "adaptive operator selection",
+    "flexible job-shop scheduling",
+    "automated guided vehicles",
+    "NSGA-III",
+    "proximal policy optimization",
+    "behavior cloning",
+    "multi-armed bandit",
+    "reproducibility"
+  ]
+}
