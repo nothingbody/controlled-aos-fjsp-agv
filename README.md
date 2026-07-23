@@ -75,8 +75,8 @@ and their prespecified analyses have passed their integrity gates.
   training folds provide strictly held-out policies for 50 test instances.
   The frozen design contains 2,000 pretraining episodes and 6,000 held-out
   test runs. The completed output contains exactly 2,000 unique pretraining
-  keys, 25 terminal checkpoints, 6,000 unique evaluation keys, and no failure
-  marker. See
+  keys and 6,000 unique evaluation keys, validates 25 terminal checkpoint
+  chains through recorded file and semantic hashes, and has no failure marker. See
   [`SCI_Paper/CROSS_INSTANCE_PRETRAINING_PROTOCOL_V7.md`](SCI_Paper/CROSS_INSTANCE_PRETRAINING_PROTOCOL_V7.md).
 - **E4-R/v8** is an outcome-informed prospective replication on 30 new
   inferential instances, excluding all ten instances used in the original E4.
@@ -173,8 +173,8 @@ No run was deleted and no coordinate was clipped.
 
 The E5 completion marker is
 `results/resubmission/v7_cross_instance/pipeline_complete.json`: 2,000 unique
-pretraining records, 25 terminal checkpoints, and 6,000 unique held-out test
-keys. The E4-R completion marker is
+pretraining records, 25 terminal-checkpoint hash records, and 6,000 unique
+held-out test keys. The E4-R completion marker is
 `results/resubmission/v8_e4_replication/pipeline_complete.json`: 1,350 unique
 run keys, 1,350 fronts, and 1,350 evaluation journals. Its front-manifest
 SHA-256 is
