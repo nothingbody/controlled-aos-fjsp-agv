@@ -95,8 +95,9 @@ The final results do not support uniform SA-AOS superiority.
 - In E4, exact UCB-context features improve in-sample behavior-cloning fit but do not yield a detected hypervolume gain.
 - Rollout 8 produces more action-effective PPO updates than rollout 16 or 32, but its prespecified rollout contrast does not survive Holm correction.
 - The exploratory rollout-8 versus UCB-only comparison is post hoc, unadjusted, and outside every confirmatory family; it does not support a superiority claim.
-- In E5, descriptive online-transferred-PPO effects are adverse relative to UCB-only and scratch adaptive PPO in all five held-out folds at all three budgets. Exact five-fold sign-flip inference attains raw `p = 0.0625`; Holm-adjusted values are 0.125 in the primary family and 0.250 in the secondary family, so no familywise-significant transfer disadvantage is claimed.
-- Every leave-one-fold-out transfer estimate is negative, while exact fold-level inference does not distinguish online fine-tuning from freezing the transferred policy.
+- In E5, descriptive online-transferred-PPO effects are adverse relative to UCB-only and scratch adaptive PPO in all five held-out fold summaries at all three budgets. Every pair of fold-specific training sets overlaps on 30 of 40 instances, so the 32-sign enumeration is reported only as a low-resolution sensitivity, not as an exact randomization test. Its raw value is 0.0625; Holm-adjusted sensitivities are 0.125 in the primary family and 0.250 in the secondary family.
+- Every leave-one-fold-out transfer estimate is negative, while the dependent fold-sign sensitivity does not distinguish online fine-tuning from freezing the transferred policy.
+- All pretraining episodes use 200 generations. The 50- and 100-generation tests therefore combine cross-instance and cross-horizon transfer; only the 200-generation test is horizon matched.
 - E5 pretraining consumes 2,000 episodes and 40.2 million objective evaluations; more offline data does not recover this frozen transfer design.
 - A post-hoc E5 behavior audit finds that the transferred policy remains strongly concentrated on `UniformMA`, whereas scratch PPO stays close to maximum ten-action entropy. This identifies a persistent behavioral prior but does not establish that the concentration causes the held-out HV loss.
 - In E4-R, none of the ten fixed-reference hypervolume contrasts is significant after Holm correction. The three PPO-versus-UCB medians remain negative; their raw two-sided p-values are 0.0325--0.0382, but their adjusted p-values are 0.0974.
@@ -105,7 +106,7 @@ The final results do not support uniform SA-AOS superiority.
 The evidence therefore supports a **conditional design boundary** for
 within-run and cross-instance UCB-to-PPO operator control. E4 diagnoses
 mechanisms using ten inferential instances; E4-R repeats the frozen contrast
-family on 30 new inferential instances; E5 has five top-level fold clusters
+family on 30 new inferential instances; E5 has five dependent fold summaries
 containing 50 descriptive out-of-fold instance blocks under one frozen transfer
 protocol. E4-R was specified after the original E4
 outcomes were known and is therefore a bounded, outcome-informed replication,
@@ -134,7 +135,7 @@ python scripts/analyze_mechanism_robustness_v6_1.py
 python experiments/run_cross_instance_pretraining_v7.py --phase all
 python scripts/analyze_cross_instance_pretraining_v7.py
 python scripts/analyze_e5_transfer_behavior.py
-python scripts/analyze_e5_fold_cluster_inference_v7.py
+python scripts/analyze_e5_fold_sign_sensitivity_v7.py
 python scripts/analyze_e5_replica_extremes_v7.py
 
 # Checkpoint-process audit requires the archived pass-1 and terminal checkpoint
@@ -189,8 +190,8 @@ SHA-256 is
 and the fixed-reference confirmatory audit reports no invalid run.
 
 The additional E5 audit tables in
-`results/resubmission/v7_cross_instance/analysis/` report exact fold-cluster
-inference, checkpoint-replica/assigned-seed sensitivities, front-extreme
+`results/resubmission/v7_cross_instance/analysis/` report dependent fold-sign
+sensitivity, checkpoint-replica/assigned-seed sensitivities, front-extreme
 denominator checks, and pass-1/terminal checkpoint parameter diagnostics. The
 archived checkpoint ledgers did not retain episode reward/HV, policy loss,
 value loss, clip fraction, approximate KL, or intermediate checkpoints; those
@@ -216,3 +217,4 @@ Saved Pareto fronts use Python pickle files for exact archival compatibility. Pi
 ## License
 
 No open-source license has been selected for the original project code yet. Copyright remains with the author unless a root license file is added explicitly. The benchmark files under `data/benchmarks/` retain their upstream MIT license and attribution.
+
