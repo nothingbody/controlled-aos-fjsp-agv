@@ -1,0 +1,126 @@
+{
+  "style": {
+    "font_size": 11,
+    "axes_linewidth": 1.2,
+    "use_tex": false,
+    "font_family": [
+      "DejaVu Sans",
+      "sans-serif"
+    ]
+  },
+  "layout": {
+    "nrows": 1,
+    "ncols": 3,
+    "figsize": [
+      13.2,
+      4.8
+    ],
+    "tight_layout_pad": 2.2,
+    "width_ratios": [
+      2.5,
+      1.0,
+      0.48
+    ]
+  },
+  "panels": [
+    {
+      "type": "bar",
+      "title": "(a) Mechanism contrasts",
+      "categories": [
+        "State + BC",
+        "State - BC",
+        "BC padded",
+        "BC enhanced",
+        "R8 - R16",
+        "R32 - R16",
+        "Interaction"
+      ],
+      "series": [
+        [
+          -4.8e-05,
+          0.0,
+          -0.008685,
+          -0.000986,
+          0.017438,
+          0.005503,
+          -0.005585
+        ],
+        [
+          0.00259,
+          0.0,
+          -0.006587,
+          -0.002766,
+          0.006694,
+          0.002207,
+          0.004269
+        ]
+      ],
+      "labels": [
+        "E4 (10 instances)",
+        "E4-R (30 instances)"
+      ],
+      "colors": [
+        "neutral_dark",
+        "blue_main"
+      ],
+      "ylabel": "Median paired ΔHV (left minus right)",
+      "ylim": [
+        -0.025,
+        0.025
+      ],
+      "annotate": false,
+      "legend": false,
+      "legend_outside": false,
+      "legend_loc": "best",
+      "legend_ncol": 2,
+      "annotate_headroom": 0.08,
+      "xtick_rotation": 24,
+      "grid": true
+    },
+    {
+      "type": "bar",
+      "title": "(b) Enhanced R16 vs UCB",
+      "categories": [
+        "G = 100",
+        "G = 200"
+      ],
+      "series": [
+        [
+          -0.009052,
+          -0.037386
+        ],
+        [
+          -0.011554,
+          -0.014586
+        ]
+      ],
+      "labels": [
+        "E4 (10 instances)",
+        "E4-R (30 instances)"
+      ],
+      "colors": [
+        "neutral_dark",
+        "blue_main"
+      ],
+      "ylabel": "Median paired ΔHV",
+      "ylim": [
+        -0.045,
+        0.01
+      ],
+      "annotate": false,
+      "legend": false,
+      "legend_outside": false,
+      "legend_loc": "best",
+      "legend_ncol": 2,
+      "annotate_headroom": 0.08,
+      "xtick_rotation": 0,
+      "grid": true
+    },
+    {
+      "type": "legend",
+      "source_panel": 0,
+      "legend_loc": "center",
+      "legend_ncol": 1
+    }
+  ]
+}

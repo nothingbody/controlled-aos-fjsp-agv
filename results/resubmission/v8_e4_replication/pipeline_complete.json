@@ -1,0 +1,20 @@
+{
+  "code_hash": "557a8cdd80246d5b84433fd06619c5f4572fc6d1061cccffb6c59606560a1e14",
+  "completed_at": "2026-07-23T10:28:25+0800",
+  "design_hash": "4edc2f84691449d3c998d8b1c95abbc1bc9262603bbbe59f337e6dbe7707a226",
+  "elapsed_seconds_this_invocation": 4659.772952795029,
+  "front_manifest_sha256": "803c72ffe5bf5434ad5f0d55579ad08c5de1f418ade562b23a541c2d2c8dec47",
+  "input_hash": "c0c85be1ea5c2f7ddefbd1b40df4aee0d8f0eb2ee32af880c1ee2fe8b3c3c480",
+  "instances": 30,
+  "protocol": "saos_e4_replication_v8_20260722",
+  "reference_snapshot_sha256": "6286b6ac3ad977bc322da21c2a7ac4dd747710bb5cf5db898a89391366e900c6",
+  "rows": 1350,
+  "seeds": [
+    52,
+    53,
+    54,
+    55,
+    56
+  ],
+  "unique_keys": 1350
+}

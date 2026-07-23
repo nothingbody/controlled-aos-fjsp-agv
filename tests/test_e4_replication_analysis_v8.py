@@ -1,3 +1,5 @@
+import importlib
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -15,6 +17,11 @@ from scripts.analyze_e4_replication_v8 import (
     validate_payload_diagnostics,
     validate_grid,
 )
+
+
+def test_numpy_cross_major_pickle_module_is_importable():
+    numeric = importlib.import_module("numpy._core.numeric")
+    assert hasattr(numeric, "_frombuffer")
 
 
 def _formal_rows() -> pd.DataFrame:

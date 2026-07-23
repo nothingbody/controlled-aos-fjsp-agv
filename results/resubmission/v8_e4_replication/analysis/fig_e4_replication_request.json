@@ -1,0 +1,68 @@
+{
+  "style": {
+    "font_size": 11,
+    "axes_linewidth": 1.2
+  },
+  "layout": {
+    "nrows": 1,
+    "ncols": 3,
+    "figsize": [13.2, 4.8],
+    "width_ratios": [2.5, 1.0, 0.48],
+    "tight_layout_pad": 2.2
+  },
+  "panels": [
+    {
+      "kind": "bar",
+      "title": "(a) Mechanism contrasts",
+      "ylabel": "Median paired ΔHV (left minus right)",
+      "ylim": [-0.025, 0.025],
+      "legend": false,
+      "xtick_rotation": 24,
+      "grid": true,
+      "data": {
+        "categories": [
+          "State + BC",
+          "State - BC",
+          "BC padded",
+          "BC enhanced",
+          "R8 - R16",
+          "R32 - R16",
+          "Interaction"
+        ],
+        "series": {
+          "E4 (10 instances)": [-0.000048, 0.0, -0.008685, -0.000986, 0.017438, 0.005503, -0.005585],
+          "E4-R (30 instances)": [0.002590, 0.0, -0.006587, -0.002766, 0.006694, 0.002207, 0.004269]
+        }
+      },
+      "colors": {
+        "E4 (10 instances)": "neutral_dark",
+        "E4-R (30 instances)": "blue_main"
+      }
+    },
+    {
+      "kind": "bar",
+      "title": "(b) Enhanced R16 vs UCB",
+      "ylabel": "Median paired ΔHV",
+      "ylim": [-0.045, 0.01],
+      "legend": false,
+      "grid": true,
+      "data": {
+        "categories": ["G = 100", "G = 200"],
+        "series": {
+          "E4 (10 instances)": [-0.009052, -0.037386],
+          "E4-R (30 instances)": [-0.011554, -0.014586]
+        }
+      },
+      "colors": {
+        "E4 (10 instances)": "neutral_dark",
+        "E4-R (30 instances)": "blue_main"
+      }
+    },
+    {
+      "kind": "legend",
+      "source_panel": 0,
+      "legend_ncol": 1,
+      "legend_loc": "center"
+    }
+  ]
+}

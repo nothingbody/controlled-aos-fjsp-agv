@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/saos_resubmission_v5/experiments/run_e4_replication_v8.py", line 28, in <module>
+    import experiments.run_mechanism_robustness_v6 as v6
+  File "/root/saos_resubmission_v5/experiments/run_mechanism_robustness_v6.py", line 36, in <module>
+    from experiments.run_revision_aos import (
+  File "/root/saos_resubmission_v5/experiments/run_revision_aos.py", line 57, in <module>
+    from src.utils.metrics import compute_spread
+  File "/root/saos_resubmission_v5/src/utils/metrics.py", line 7, in <module>
+    from scipy import stats
+ModuleNotFoundError: No module named 'scipy'

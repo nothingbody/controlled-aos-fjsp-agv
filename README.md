@@ -5,8 +5,9 @@ and analysis artifacts for the controlled evaluation of
 stage-aware adaptive operator selection in multi-objective flexible job-shop
 scheduling with automated guided vehicles (FJSP-AGV). The archive covers the
 18,500-run primary campaign, the separately frozen 1,100-run E4 mechanism
-study, and 6,000 held-out E5 evaluations: 25,600 test runs in total. E5 also
-records 2,000 offline pretraining episodes separately.
+study, 6,000 held-out E5 evaluations, and an outcome-informed 1,350-run E4-R
+replication: 26,950 test runs in total. E5 also records 2,000 offline
+pretraining episodes separately.
 
 ## Scope
 
@@ -52,7 +53,8 @@ budget.
 | E3 | Seven controllers at 50, 100, and 200 generations | 10,500 |
 | E4 | State information, behavior cloning, and rollout mechanisms | 1,100 |
 | E5 | Four controllers under five-fold held-out transfer evaluation | 6,000 |
-| **Total** | Completed E1--E5 test runs | **25,600** |
+| E4-R | New-instance replication of the E4 mechanism contrasts | 1,350 |
+| **Total** | Completed controlled test runs | **26,950** |
 
 The E5 total excludes its 2,000 pretraining episodes because those episodes
 are not pooled with held-out runs as inferential replicates.
@@ -66,9 +68,8 @@ and
 
 ## Prespecified extensions
 
-Two prospective extensions were frozen after E1--E4. E5 is complete and its
-prespecified analysis has passed all integrity gates; E4-R is currently running
-on the shared compute host and is not yet used for a scientific claim.
+Two prospective extensions were frozen after E1--E4. E5 and E4-R are complete,
+and their prespecified analyses have passed their integrity gates.
 
 - **E5/v7** changes only the source of PPO parameters. Five cross-fitted
   training folds provide strictly held-out policies for 50 test instances.
@@ -79,12 +80,9 @@ on the shared compute host and is not yet used for a scientific claim.
   [`SCI_Paper/CROSS_INSTANCE_PRETRAINING_PROTOCOL_V7.md`](SCI_Paper/CROSS_INSTANCE_PRETRAINING_PROTOCOL_V7.md).
 - **E4-R/v8** is an outcome-informed prospective replication on 30 new
   inferential instances, excluding all ten instances used in the original E4.
-  It contains 1,350 planned runs. See
+  The completed output contains exactly 1,350 unique run keys, 1,350 Pareto
+  fronts, 1,350 evaluation journals, and no failure marker. See
   [`SCI_Paper/E4_REPLICATION_PROTOCOL_V8.md`](SCI_Paper/E4_REPLICATION_PROTOCOL_V8.md).
-
-No E4-R result will be claimed until its exact grid, hash chain, Pareto fronts,
-completion marker, and prespecified analysis pass the corresponding audit.
-E4-R was launched only after E5 released the shared CPU host.
 
 ## Main empirical finding
 
@@ -100,11 +98,16 @@ The final results do not support uniform SA-AOS superiority.
 - In E5, online pretrained PPO is worse than UCB-only and scratch PPO on held-out fold instances at 50, 100, and 200 generations; all six Holm-adjusted transfer contrasts remain significant in the adverse direction.
 - Every leave-one-fold-out transfer estimate is negative, while online fine-tuning is not statistically distinguished from freezing the transferred policy.
 - E5 pretraining consumes 2,000 episodes and 40.2 million objective evaluations; more offline data does not recover this frozen transfer design.
+- In E4-R, none of the ten fixed-reference hypervolume contrasts is significant after Holm correction. The three PPO-versus-UCB medians remain negative; their raw two-sided p-values are 0.0325--0.0382, but their adjusted p-values are 0.0974.
+- Across the nine contrasts shared with E4, E4-R reproduces seven effect directions and eight familywise significance decisions. The original generation-200 PPO-versus-UCB significance does not replicate, although its adverse direction does.
 
 The evidence therefore supports a **conditional design boundary** for
 within-run and cross-instance UCB-to-PPO operator control. E4 diagnoses
-mechanisms using ten inferential instances; E5 tests 50 out-of-fold instance
-blocks under one frozen transfer protocol. Nonsignificant mechanism contrasts
+mechanisms using ten inferential instances; E4-R repeats the frozen contrast
+family on 30 new inferential instances; E5 tests 50 out-of-fold instance blocks
+under one frozen transfer protocol. E4-R was specified after the original E4
+outcomes were known and is therefore a bounded, outcome-informed replication,
+not an independent discovery study. Nonsignificant mechanism contrasts
 establish neither absence of an effect nor practical equivalence.
 
 ## Reproduction
@@ -129,7 +132,7 @@ python scripts/analyze_mechanism_robustness_v6_1.py
 python experiments/run_cross_instance_pretraining_v7.py --phase all
 python scripts/analyze_cross_instance_pretraining_v7.py
 
-# E4-R/v8 is launched only after E5 has released the shared CPU host.
+# E4-R/v8: reproduce the completed new-instance replication and analysis.
 python experiments/run_e4_replication_v8.py
 python scripts/analyze_e4_replication_v8.py
 ```
@@ -166,8 +169,20 @@ affected fronts and 12 out-of-box points, the expanded-reference sensitivity,
 IGD+, behavior-cloning diagnostics, and the explicitly post-hoc R8--UCB table.
 No run was deleted and no coordinate was clipped.
 
-The versioned code-and-data archive is available as
+The E5 completion marker is
+`results/resubmission/v7_cross_instance/pipeline_complete.json`: 2,000 unique
+pretraining records, 25 terminal checkpoints, and 6,000 unique held-out test
+keys. The E4-R completion marker is
+`results/resubmission/v8_e4_replication/pipeline_complete.json`: 1,350 unique
+run keys, 1,350 fronts, and 1,350 evaluation journals. Its front-manifest
+SHA-256 is
+`803c72ffe5bf5434ad5f0d55579ad08c5de1f418ade562b23a541c2d2c8dec47`,
+and the fixed-reference confirmatory audit reports no invalid run.
+
+The earlier primary-plus-E4 archive remains available as
 [GitHub release v6.0.1](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v6.0.1).
+The completed E5 and E4-R evidence packages are published through the current
+repository history and its accompanying pull request.
 
 Manuscript text, submission packages, response letters, graphical abstracts,
 and journal-production assets are intentionally excluded from this public

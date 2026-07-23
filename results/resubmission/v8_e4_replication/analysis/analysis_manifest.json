@@ -1,0 +1,73 @@
+{
+  "rows": 1350,
+  "unique_keys": 1350,
+  "instances": 30,
+  "seeds": [
+    52,
+    53,
+    54,
+    55,
+    56
+  ],
+  "budgets": [
+    100,
+    200
+  ],
+  "status": "complete",
+  "code_hash": "557a8cdd80246d5b84433fd06619c5f4572fc6d1061cccffb6c59606560a1e14",
+  "design_hash": "4edc2f84691449d3c998d8b1c95abbc1bc9262603bbbe59f337e6dbe7707a226",
+  "input_hash": "c0c85be1ea5c2f7ddefbd1b40df4aee0d8f0eb2ee32af880c1ee2fe8b3c3c480",
+  "reference_snapshot_sha256": "6286b6ac3ad977bc322da21c2a7ac4dd747710bb5cf5db898a89391366e900c6",
+  "protocol": "saos_e4_replication_v8_20260722",
+  "analysis_role": "prespecified E4-R/v8 new-instance replication analysis",
+  "run_manifest_sha256": "67131cd523f8756dd90e69268ca9bf66a9d3f38146cae475c106c874b6f8cc42",
+  "pipeline_complete_sha256": "6077e12d9a4f71d310b5184e4aa342f89b5e971bd14ec1bc6bfecaf659197d46",
+  "runs_csv_sha256": "fc53264df54fa190e0da3c9bd850b66da41d2818fba205c6d468ec2a49cdfdc5",
+  "front_manifest_sha256": "803c72ffe5bf5434ad5f0d55579ad08c5de1f418ade562b23a541c2d2c8dec47",
+  "instance_seed_cells": 270,
+  "bootstrap_reps": 10000,
+  "sign_flip_reps": 1000000,
+  "fixed_reference_invalid_runs": 0,
+  "fixed_reference_excluded_points": 9,
+  "expanded_reference_invalid_runs": 2,
+  "v6_comparisons_sha256": "d6358b2f65ed9151d0f56a60c9f3d1e3124e7b4e99165897bd222705fe94211e",
+  "shared_v6_v8_contrasts": 9,
+  "direction_reproduced": [
+    "enhanced_vs_padded_without_bc",
+    "bc_minus_no_bc_padded",
+    "bc_minus_no_bc_enhanced",
+    "rollout8_minus_rollout16",
+    "rollout32_minus_rollout16",
+    "enhanced16_minus_ucb_g100",
+    "enhanced16_minus_ucb_g200"
+  ],
+  "familywise_decision_reproduced": [
+    "enhanced_vs_padded_with_bc",
+    "enhanced_vs_padded_without_bc",
+    "bc_minus_no_bc_padded",
+    "bc_minus_no_bc_enhanced",
+    "rollout8_minus_rollout16",
+    "rollout32_minus_rollout16",
+    "enhanced16_minus_ucb_g100",
+    "state_by_bc_difference_in_differences"
+  ],
+  "holm_families": {
+    "M100_bc": 2,
+    "M100_interaction": 1,
+    "M100_state": 2,
+    "M200_rollout": 2,
+    "UCB_replication": 3
+  },
+  "outputs": {
+    "runs_with_fixed_indicators.csv": "7400f002842731c364f1635472f68120cd918817117d4815ef50f29e247a3fc2",
+    "reference_orthant_audit.csv": "17ddb7e8f96748dfaa6a33d4be6fd2d8e0db78f49a7944ec22711b7cbdc24543",
+    "instance_seed_medians.csv": "a32dc18999a6e9b5d333b001ca40e76556fb43c1afe366a7874cc29ab1a45d29",
+    "prespecified_comparisons.csv": "c96e88f8370c50a9f077b13ccbec2b8609c152be500a7b0f18112f46bb9c6105",
+    "prespecified_pairwise_hv.csv": "26948e10a424b45df266db9a23521f4440a9f9e7ff0371933230a8c14d17c428",
+    "prespecified_pairwise_igdplus.csv": "d9a8d3c1716fa98d89ae2da2a109df874aa068632fbff4dc4775ceb983b483b9",
+    "contrast_instance_blocks.csv": "2d6081acd9b563b47c127139c2310f4e3a25870599332f168a34273b06b850c0",
+    "v6_v8_replication_comparison.csv": "ce055cd939a9b4d380c0c4d14683b824944830cfa9c79ee29265edc83cdafe86",
+    "summary_by_variant.csv": "4067f08b93e8550f3dde414948244cc24e2f00d4dc82aae847745b21acf90f24",
+    "summary_by_instance_family.csv": "9b6a8a9c8c52dda9095e1233c03c63c049b6eec8aa011e126caeee4a1c4bf307"
+  }
+}

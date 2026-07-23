@@ -21,6 +21,19 @@ import pandas as pd
 from pymoo.indicators.hv import HV
 from scipy.stats import rankdata
 
+# NumPy 2.x pickles refer to ``numpy._core.numeric`` whereas NumPy 1.x
+# exposes the same implementation as ``numpy.core.numeric``.  Registering
+# these aliases permits a read-only audit of fronts produced under either
+# major version without rewriting the archived pickle payloads.
+try:  # pragma: no cover - branch depends on the installed NumPy major version
+    import numpy._core.numeric  # type: ignore[import-not-found]  # noqa: F401
+except ModuleNotFoundError:  # NumPy < 2
+    import numpy.core as _numpy_core
+    import numpy.core.numeric as _numpy_core_numeric
+
+    sys.modules.setdefault("numpy._core", _numpy_core)
+    sys.modules.setdefault("numpy._core.numeric", _numpy_core_numeric)
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
