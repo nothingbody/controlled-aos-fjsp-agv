@@ -1,18 +1,21 @@
-"""Fold-cluster inference for the frozen E5/v7 held-out experiment.
+"""Dependent fold-sign sensitivity for the frozen E5/v7 held-out experiment.
 
 The original E5 analysis reduces ten seeds within each held-out instance and
 reports instance-level paired tests.  Instances within a fold nevertheless
 share a training set and five terminal checkpoints.  This read-only supplement
-therefore treats the five folds as the inferential units:
+therefore reduces the data to five descriptive fold summaries:
 
 1. compute the paired controller difference for each held-out instance;
 2. take the median of the ten instance differences within each fold;
-3. test the mean of the five fold summaries by enumerating all 2**5 sign flips;
+3. enumerate all 2**5 signs of the five fold summaries around their mean;
 4. apply Holm correction within the three prespecified E5 families.
 
-With only five top-level clusters, the minimum attainable two-sided exact
-p-value is 2/32 = 0.0625.  The output is deliberately low-resolution and does
-not reinterpret the 50 within-fold instances as independent clusters.
+The five training sets are not independent: every pair overlaps on 30 of 40
+training instances.  The 32-sign enumeration is therefore reported as a
+low-resolution sensitivity, not as an exact randomization test.  Its minimum
+attainable two-sided sensitivity value is 2/32 = 0.0625.  The reduction avoids
+reinterpreting the 50 checkpoint-dependent instance summaries as independent
+replications, but it does not create five independent experiments.
 """
 
 from __future__ import annotations
@@ -87,12 +90,12 @@ def holm_adjust(p_values: np.ndarray) -> np.ndarray:
     return adjusted
 
 
-def exact_fold_sign_flip(values: np.ndarray) -> tuple[float, float, int]:
-    """Two-sided exact sign-flip test using absolute mean fold effect."""
+def enumerate_fold_signs(values: np.ndarray) -> tuple[float, float, int]:
+    """Two-sided 32-sign sensitivity using the absolute mean fold effect."""
 
     values = np.asarray(values, dtype=float)
     if values.shape != (5,) or not np.isfinite(values).all():
-        raise ValueError("formal E5 fold test requires five finite fold effects")
+        raise ValueError("E5 fold-sign sensitivity requires five finite fold effects")
     observed = float(abs(np.mean(values)))
     statistics = []
     for signs in itertools.product((-1.0, 1.0), repeat=len(values)):
@@ -149,7 +152,7 @@ def contrast_fold_effects(
         )
     fold_table = pd.DataFrame(rows)
     values = fold_table["fold_median_delta"].to_numpy(dtype=float)
-    statistic, p_raw, assignments = exact_fold_sign_flip(values)
+    statistic, p_raw, assignments = enumerate_fold_signs(values)
     record = {
         "family": family,
         "contrast": contrast,
@@ -157,7 +160,10 @@ def contrast_fold_effects(
         "lhs": lhs,
         "rhs": rhs,
         "orientation": "positive favors lhs",
-        "n_top_level_folds": int(len(values)),
+        "n_fold_summaries": int(len(values)),
+        "training_instances_per_fold": 40,
+        "pairwise_training_overlap": 30,
+        "dependence_note": "fold training sets overlap; sensitivity is not an exact randomization test",
         "fold_effect_definition": "median of 10 instance-level seed medians",
         "median_of_fold_effects": float(np.median(values)),
         "mean_of_fold_effects": float(np.mean(values)),
@@ -167,8 +173,8 @@ def contrast_fold_effects(
         "zero_folds": int(np.sum(np.abs(values) <= 1e-12)),
         "negative_folds": int(np.sum(values < -1e-12)),
         "test_statistic_abs_mean": statistic,
-        "exact_sign_flip_assignments": assignments,
-        "p_raw_fold_exact": p_raw,
+        "sign_assignments": assignments,
+        "p_raw_fold_sign_sensitivity": p_raw,
     }
     return fold_table, record
 
@@ -216,15 +222,15 @@ def main() -> None:
     for family, indices in inference.groupby("family").groups.items():
         index = list(indices)
         inference.loc[index, "p_holm_within_family"] = holm_adjust(
-            inference.loc[index, "p_raw_fold_exact"].to_numpy(dtype=float)
+            inference.loc[index, "p_raw_fold_sign_sensitivity"].to_numpy(dtype=float)
         )
-    inference["fold_holm_significant"] = (
+    inference["fold_sign_sensitivity_below_0_05"] = (
         inference["p_holm_within_family"] < 0.05
     )
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    fold_path = args.out_dir / "fold_cluster_effects.csv"
-    inference_path = args.out_dir / "fold_cluster_exact_inference.csv"
+    fold_path = args.out_dir / "fold_effect_summaries.csv"
+    inference_path = args.out_dir / "fold_sign_sensitivity.csv"
     pd.concat(fold_frames, ignore_index=True).to_csv(fold_path, index=False)
     inference.to_csv(inference_path, index=False)
     print(inference.to_string(index=False))
