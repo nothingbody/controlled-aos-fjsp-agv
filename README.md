@@ -1,4 +1,4 @@
-# Controlled Finite-Budget Evaluation of UCB-to-BC-to-PPO Operator Selection
+# Finite-Data Limits of Generation-Level Learned Operator Selection
 
 This repository contains the code, frozen protocols, run logs, Pareto fronts,
 and analysis artifacts for the controlled evaluation of
@@ -6,8 +6,10 @@ stage-aware adaptive operator selection in multi-objective flexible job-shop
 scheduling with automated guided vehicles (FJSP-AGV). The archive covers the
 18,500-run primary campaign, the separately frozen 1,100-run E4 mechanism
 study, 6,000 held-out E5 evaluations, and an outcome-informed 1,350-run E4-R
-replication: 26,950 test runs in total. E5 also records 2,000 offline
-pretraining episodes separately.
+replication: 26,950 execution rows in total. Because the 3,500 E3 rows at
+100 generations reproduce the corresponding E1 controller--instance--seed
+cells, the archive contains 23,450 unique scientific design cells. E5 records
+2,000 offline pretraining episodes separately.
 
 ## Scope
 
@@ -59,14 +61,17 @@ budget.
 |---|---|---:|
 | E1 | Ten-controller comparison at 100 generations | 5,000 |
 | E2 | Six reward definitions with AdaptiveSAOS | 3,000 |
-| E3 | Seven controllers at 50, 100, and 200 generations | 10,500 |
+| E3 | Seven controllers at 50, 100, and 200 generations; the 3,500 rows at 100 generations repeat E1 design cells as a consistency bridge | 10,500 |
 | E4 | State information, behavior cloning, and rollout mechanisms | 1,100 |
 | E5 | Four controllers under five-fold held-out transfer evaluation | 6,000 |
 | E4-R | New-instance replication of the E4 mechanism contrasts | 1,350 |
 | **Total** | Completed controlled test runs | **26,950** |
 
-The E5 total excludes its 2,000 pretraining episodes because those episodes
-are not pooled with held-out runs as inferential replicates.
+The campaign therefore contains 26,950 execution rows but 23,450 unique
+scientific design cells. The E3 100-generation repetition is not treated as
+independent evidence or as a second significance claim. The E5 total excludes
+its 2,000 pretraining episodes because those episodes are not pooled with
+held-out runs as inferential replicates.
 
 The primary design and analysis rules are in
 [`SCI_Paper/RESUBMISSION_EXPERIMENT_PROTOCOL.md`](SCI_Paper/RESUBMISSION_EXPERIMENT_PROTOCOL.md).
