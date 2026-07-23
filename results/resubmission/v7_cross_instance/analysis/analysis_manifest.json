@@ -1,0 +1,30 @@
+{
+  "protocol": "saos_cross_instance_pretrained_ppo_v7_20260722",
+  "analysis_role": "prespecified E5/v7 held-out and data-economy analysis",
+  "run_manifest_sha256": "13da43c750f7c26596e052255e9dd81a9bdabe13f60dd74efb6ba005c3d20dea",
+  "pipeline_complete_sha256": "557354f2c81799c20bb64035a7bb3d39cb267dbdd58118d65617092b2d8d7b78",
+  "reference_snapshot_sha256": "6869861ce9fbc31e2e1e4e97e8460b6e65b41f7a1b8965f7638f80f1185f5c0a",
+  "pretraining_rows": 2000,
+  "evaluation_rows": 6000,
+  "instance_blocks": 50,
+  "bootstrap_reps": 10000,
+  "sign_flip_reps": 1000000,
+  "fixed_reference_invalid_runs": 0,
+  "fixed_reference_excluded_points": 10,
+  "expanded_reference_invalid_runs": 0,
+  "superiority_gates_passed": [],
+  "outputs": {
+    "runs_with_fixed_indicators.csv": "f4b03f0efd6a547c83448d4203aa6c77332eff50aa07de787b188fdded70f03a",
+    "reference_orthant_audit.csv": "5e54f392ad7dde5d4fb6fc43139ec7af5ce2cb1392de1364ce8dc52c1dc68e55",
+    "instance_seed_medians.csv": "d4d5bcca95e2855e8fe9add4130116ce9bf1899a6ac2e60c3fa1e9f07da7b43e",
+    "prespecified_comparisons.csv": "32cb677a55d2d0cc1b77d8c51d4fd619b9b0d0ce50d8ae5b4d53b9ade84ddc19",
+    "contrast_instance_blocks.csv": "b24b3d1c56ee7f2692260a043347782925f8b09d63cffc7d132b31cf56603ff4",
+    "leave_one_fold_out.csv": "1c827159d087d92041ba4348a531c1b234d0653ac94a69db1f5b10781acc0879",
+    "fold_replica_summaries.csv": "86ba495eb658c85798f6003670fde5ead068f89f21506a4e74d10856f06e9ee1",
+    "pretraining_chain_cost.csv": "f86287f908295d4b6cf26ec61d8ce78fe693eb9eb4cf4155431cd7d0ef60ce05",
+    "online_data_economy.csv": "9a1e78f67e48950214cbb34db87be74a62e74b23518a3306a33a0d75eed205f9",
+    "offline_cost_amortization.csv": "61f82dc36b4e8b2be4749b526b3c4e83900cc023d4dc3231f3d62e9761b09a0c",
+    "cpu_break_even.csv": "4d24d3f48790ae537cf1db108ec62d0eb83cf53c724628beb1837167eea62924",
+    "performance_summary.csv": "84f80259246df3bbaacaf232303ffa518e5747fb62eee36f35e53f8404bd6b2f"
+  }
+}

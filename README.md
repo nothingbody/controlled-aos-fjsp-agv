@@ -4,8 +4,9 @@ This repository contains the code, frozen protocols, run logs, Pareto fronts,
 and analysis artifacts for the controlled evaluation of
 stage-aware adaptive operator selection in multi-objective flexible job-shop
 scheduling with automated guided vehicles (FJSP-AGV). The archive covers the
-18,500-run primary campaign and the separately frozen 1,100-run E4 mechanism
-study: 19,600 optimizer runs in total.
+18,500-run primary campaign, the separately frozen 1,100-run E4 mechanism
+study, and 6,000 held-out E5 evaluations: 25,600 test runs in total. E5 also
+records 2,000 offline pretraining episodes separately.
 
 ## Scope
 
@@ -26,7 +27,12 @@ Stage-Aware Adaptive Operator Selection (SA-AOS) uses:
 3. an adaptive handover to PPO;
 4. strictly on-policy PPO rollouts after the handover.
 
-No pretrained checkpoint or cross-instance policy transfer is used. Every instance-seed run initializes its actor, critic, optimizers, and buffers independently.
+The completed E1--E4 studies use no pretrained checkpoint or cross-instance
+policy transfer: every instance--seed run initializes its actor, critic,
+optimizers, and buffers independently. A separately prespecified E5 protocol
+tests cross-instance PPO pretraining under strict out-of-fold evaluation;
+its offline training cost is recorded separately from the held-out deployment
+budget.
 
 ## Frozen experiment protocol
 
@@ -45,7 +51,11 @@ No pretrained checkpoint or cross-instance policy transfer is used. Every instan
 | E2 | Six reward definitions with AdaptiveSAOS | 3,000 |
 | E3 | Seven controllers at 50, 100, and 200 generations | 10,500 |
 | E4 | State information, behavior cloning, and rollout mechanisms | 1,100 |
-| **Total** | Primary campaign plus the separately frozen mechanism study | **19,600** |
+| E5 | Four controllers under five-fold held-out transfer evaluation | 6,000 |
+| **Total** | Completed E1--E5 test runs | **25,600** |
+
+The E5 total excludes its 2,000 pretraining episodes because those episodes
+are not pooled with held-out runs as inferential replicates.
 
 The primary design and analysis rules are in
 [`SCI_Paper/RESUBMISSION_EXPERIMENT_PROTOCOL.md`](SCI_Paper/RESUBMISSION_EXPERIMENT_PROTOCOL.md).
@@ -53,6 +63,28 @@ The E4 protocol and the dated reference-point amendment are in
 [`SCI_Paper/MECHANISM_ROBUSTNESS_PROTOCOL_V6.md`](SCI_Paper/MECHANISM_ROBUSTNESS_PROTOCOL_V6.md)
 and
 [`SCI_Paper/MECHANISM_ROBUSTNESS_ANALYSIS_AMENDMENT_V6_1.md`](SCI_Paper/MECHANISM_ROBUSTNESS_ANALYSIS_AMENDMENT_V6_1.md).
+
+## Prespecified extensions
+
+Two prospective extensions were frozen after E1--E4. E5 is complete and its
+prespecified analysis has passed all integrity gates; E4-R is currently running
+on the shared compute host and is not yet used for a scientific claim.
+
+- **E5/v7** changes only the source of PPO parameters. Five cross-fitted
+  training folds provide strictly held-out policies for 50 test instances.
+  The frozen design contains 2,000 pretraining episodes and 6,000 held-out
+  test runs. The completed output contains exactly 2,000 unique pretraining
+  keys, 25 terminal checkpoints, 6,000 unique evaluation keys, and no failure
+  marker. See
+  [`SCI_Paper/CROSS_INSTANCE_PRETRAINING_PROTOCOL_V7.md`](SCI_Paper/CROSS_INSTANCE_PRETRAINING_PROTOCOL_V7.md).
+- **E4-R/v8** is an outcome-informed prospective replication on 30 new
+  inferential instances, excluding all ten instances used in the original E4.
+  It contains 1,350 planned runs. See
+  [`SCI_Paper/E4_REPLICATION_PROTOCOL_V8.md`](SCI_Paper/E4_REPLICATION_PROTOCOL_V8.md).
+
+No E4-R result will be claimed until its exact grid, hash chain, Pareto fronts,
+completion marker, and prespecified analysis pass the corresponding audit.
+E4-R was launched only after E5 released the shared CPU host.
 
 ## Main empirical finding
 
@@ -65,11 +97,15 @@ The final results do not support uniform SA-AOS superiority.
 - In E4, exact UCB-context features improve in-sample behavior-cloning fit but do not yield a detected hypervolume gain.
 - Rollout 8 produces more action-effective PPO updates than rollout 16 or 32, but its prespecified rollout contrast does not survive Holm correction.
 - The exploratory rollout-8 versus UCB-only comparison is post hoc, unadjusted, and outside every confirmatory family; it does not support a superiority claim.
+- In E5, online pretrained PPO is worse than UCB-only and scratch PPO on held-out fold instances at 50, 100, and 200 generations; all six Holm-adjusted transfer contrasts remain significant in the adverse direction.
+- Every leave-one-fold-out transfer estimate is negative, while online fine-tuning is not statistically distinguished from freezing the transferred policy.
+- E5 pretraining consumes 2,000 episodes and 40.2 million objective evaluations; more offline data does not recover this frozen transfer design.
 
 The evidence therefore supports a **conditional design boundary** for
-within-run UCB-to-BC-to-PPO operator control. E4 diagnoses mechanisms using ten
-inferential instances; its nonsignificant contrasts establish neither absence
-of an effect nor practical equivalence.
+within-run and cross-instance UCB-to-PPO operator control. E4 diagnoses
+mechanisms using ten inferential instances; E5 tests 50 out-of-fold instance
+blocks under one frozen transfer protocol. Nonsignificant mechanism contrasts
+establish neither absence of an effect nor practical equivalence.
 
 ## Reproduction
 
@@ -77,7 +113,7 @@ of an effect nor practical equivalence.
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-pytest -q
+python -m pytest -q
 
 # Full validated pipeline; choose a worker count permitted by the host.
 WORKERS=12 bash scripts/run_remote_resubmission_pipeline.sh
@@ -87,6 +123,15 @@ python experiments/run_mechanism_robustness_v6.py --workers 40
 
 # Reproduce the amended E4 analysis from the archived runs and fronts.
 python scripts/analyze_mechanism_robustness_v6_1.py
+
+# E5/v7: run the frozen pretraining and held-out evaluation pipeline, then
+# analyze only after the completion gate accepts all 8,000 records.
+python experiments/run_cross_instance_pretraining_v7.py --phase all
+python scripts/analyze_cross_instance_pretraining_v7.py
+
+# E4-R/v8 is launched only after E5 has released the shared CPU host.
+python experiments/run_e4_replication_v8.py
+python scripts/analyze_e4_replication_v8.py
 ```
 
 The full pipeline resumes from existing unique result keys, validates the frozen protocol, rejects duplicates, recomputes common-reference hypervolume, performs instance-blocked statistics, and audits every saved Pareto front.
@@ -103,6 +148,8 @@ tests/                           Integrity and regression tests
 SCI_Paper/                       Experiment protocols and reproducibility audits
 results/resubmission/v5/         E1--E3 CSVs, fronts, logs, statistics, and audits
 results/resubmission/v6_mechanism/ E4 raw results, fronts, audits, and amended analysis
+results/resubmission/v7_cross_instance/ E5 ledgers, held-out rows, and analysis
+results/resubmission/v8_e4_replication/ E4-R frozen reference and formal outputs
 ```
 
 The primary completion marker is

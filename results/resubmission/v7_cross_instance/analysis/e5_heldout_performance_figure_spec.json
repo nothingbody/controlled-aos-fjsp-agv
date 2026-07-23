@@ -1,0 +1,43 @@
+{
+  "style": {
+    "font_size": 10,
+    "axes_linewidth": 1.0,
+    "use_tex": false,
+    "font_family": ["Arial", "Helvetica", "DejaVu Sans", "sans-serif"]
+  },
+  "layout": {
+    "nrows": 1,
+    "ncols": 1,
+    "figsize": [7.2, 4.2],
+    "tight_layout_pad": 1.2
+  },
+  "panels": [
+    {
+      "type": "trend",
+      "title": "Held-out performance across finite budgets",
+      "x": [50, 100, 200],
+      "y_series": [
+        [1.0287753652, 1.0777082060, 1.0885410289],
+        [1.0329587123, 1.0734657835, 1.0886631420],
+        [0.9859506619, 0.9897755889, 0.9531850624],
+        [0.9859506619, 0.9845468821, 0.9459684708]
+      ],
+      "labels": [
+        "UCB-only",
+        "Scratch PPO",
+        "Pretrained PPO, frozen",
+        "Pretrained PPO, online"
+      ],
+      "colors": ["blue_main", "neutral_dark", "teal", "red_strong"],
+      "xlabel": "Generation budget",
+      "ylabel": "Median fixed-reference HV",
+      "xticks": [50, 100, 200],
+      "ylim": [0.92, 1.105],
+      "line_width": 2.0,
+      "legend": true,
+      "legend_loc": "lower left",
+      "legend_ncol": 2,
+      "grid": true
+    }
+  ]
+}

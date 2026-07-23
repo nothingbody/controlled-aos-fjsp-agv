@@ -1,0 +1,16 @@
+{
+  "checkpoint_manifest_sha256": "0960e160a42e8c004512f669979b7875c177750d77601c7e92920d883a814640",
+  "code_hash": "abfa79b5bcc2a8fc9b1062859c9bda7054ad7c816b1b3a7d2930f8c1f224b114",
+  "completed_at": "2026-07-23T05:55:34+0800",
+  "design_hash": "f4860789d1f1e1976ae56084b41f0104998cc8a1e1764bc9aaf78d12db4ddb6e",
+  "evaluation_rows": 6000,
+  "evaluation_unique_keys": 6000,
+  "front_manifest_sha256": "2971a6efed2ad9bfb4618cc6dfc47ddfbac9544803975db571f9982c95b011db",
+  "input_hash": "739922005159299d770b34a8a3f9d5cd94ead2a76047ee9b4eaa4269da2acbfe",
+  "pretraining_rows": 2000,
+  "pretraining_unique_keys": 2000,
+  "protocol": "saos_cross_instance_pretrained_ppo_v7_20260722",
+  "reference_snapshot_sha256": "6869861ce9fbc31e2e1e4e97e8460b6e65b41f7a1b8965f7638f80f1185f5c0a",
+  "split_hash": "d4b1384ea35b22f5560c43c271d5203cc266ed2c2f7193d8b3fb19aa21fe8f8f",
+  "terminal_checkpoints": 25
+}
