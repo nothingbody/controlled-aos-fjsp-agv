@@ -17,6 +17,15 @@ three optimization objectives are makespan, a normalized total-energy index,
 and workload imbalance. The repository is an empirical audit package rather
 than a claim of a generally superior solver.
 
+The selector acts at **generation level**: one operator is selected once per
+generation and produces all 100 offspring. Consequently, 50, 100, and 200
+generations expose only 50, 100, and 200 selector decisions. This decision
+granularity aligns one reward with one population transition, but it is not
+implied by the objective-evaluation budget; finer offspring-batch or
+parent-pair control could supply substantially more action samples without
+more schedule evaluations. The reported boundary is therefore specific to
+this generation-level contract.
+
 The revised scope does **not** include dynamic job arrivals, machine or AGV failures, conflict-free AGV routing, critical-path PPO, graph encoding, or graded rescheduling.
 
 ## Method
@@ -104,6 +113,14 @@ The final results do not support uniform SA-AOS superiority.
 - Read-only instance-level and run-level mixed-model sensitivities preserve the adverse E5 direction. They remain descriptive because instances share fold-specific checkpoints, training sets overlap, and all six mixed models issue variance-boundary warnings.
 - In E4-R, none of the ten fixed-reference hypervolume contrasts is significant after Holm correction. The three PPO-versus-UCB medians remain negative; their raw two-sided p-values are 0.0325--0.0382, but their adjusted p-values are 0.0974.
 - Across the nine contrasts shared with E4, E4-R reproduces seven effect directions and eight familywise significance decisions. The original generation-200 PPO-versus-UCB significance does not replicate, although its adverse direction does.
+
+The completed baseline family contains random selection, fixed cycling,
+probability matching, adaptive pursuit, coverage-aware sliding-window UCB,
+PPO-only, and UCB-to-PPO handover controls. It does **not** contain Thompson
+sampling, EXP3, dynamic MAB, Ropke--Pisinger segment-based ALNS weighting, or a
+same-backbone reproduction of an external imitation-learning selector.
+Accordingly, the results compare specified controllers rather than bandit,
+adaptive-weighting, or learned-selector method classes.
 
 The evidence therefore supports a **conditional design boundary** for
 within-run and cross-instance UCB-to-PPO operator control. E4 diagnoses
@@ -231,4 +248,5 @@ Saved Pareto fronts use Python pickle files for exact archival compatibility. Pi
 ## License
 
 No open-source license has been selected for the original project code yet. Copyright remains with the author unless a root license file is added explicitly. The benchmark files under `data/benchmarks/` retain their upstream MIT license and attribution.
+
 
