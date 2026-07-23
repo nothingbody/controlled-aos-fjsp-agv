@@ -98,6 +98,7 @@ The final results do not support uniform SA-AOS superiority.
 - In E5, online pretrained PPO is worse than UCB-only and scratch PPO on held-out fold instances at 50, 100, and 200 generations; all six Holm-adjusted transfer contrasts remain significant in the adverse direction.
 - Every leave-one-fold-out transfer estimate is negative, while online fine-tuning is not statistically distinguished from freezing the transferred policy.
 - E5 pretraining consumes 2,000 episodes and 40.2 million objective evaluations; more offline data does not recover this frozen transfer design.
+- A post-hoc E5 behavior audit finds that the transferred policy remains strongly concentrated on `UniformMA`, whereas scratch PPO stays close to maximum ten-action entropy. This identifies a persistent behavioral prior but does not establish that the concentration causes the held-out HV loss.
 - In E4-R, none of the ten fixed-reference hypervolume contrasts is significant after Holm correction. The three PPO-versus-UCB medians remain negative; their raw two-sided p-values are 0.0325--0.0382, but their adjusted p-values are 0.0974.
 - Across the nine contrasts shared with E4, E4-R reproduces seven effect directions and eight familywise significance decisions. The original generation-200 PPO-versus-UCB significance does not replicate, although its adverse direction does.
 
@@ -131,6 +132,7 @@ python scripts/analyze_mechanism_robustness_v6_1.py
 # analyze only after the completion gate accepts all 8,000 records.
 python experiments/run_cross_instance_pretraining_v7.py --phase all
 python scripts/analyze_cross_instance_pretraining_v7.py
+python scripts/analyze_e5_transfer_behavior.py
 
 # E4-R/v8: reproduce the completed new-instance replication and analysis.
 python experiments/run_e4_replication_v8.py

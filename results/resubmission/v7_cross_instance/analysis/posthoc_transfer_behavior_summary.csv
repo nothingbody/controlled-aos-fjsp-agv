@@ -1,0 +1,4 @@
+analysis_role,budget,n_run_pairs,n_instance_blocks,scratch_operator_entropy_median,online_operator_entropy_median,scratch_uniform_ma_share_median,online_uniform_ma_share_median,scratch_policy_entropy_median,online_policy_entropy_median,js_divergence_vs_scratch_median,online_frozen_exact_count_match_fraction,uniform_ma_dominant_online_fraction,spearman_delta_uniform_ma_vs_delta_hv,spearman_uncorrected_p
+posthoc_descriptive_transfer_behavior,50,500,50,0.9885542594,0.883396095,0.1,0.34,2.299803212,0.3956191745,0.07656137808,0.996,0.8,-0.1430950235,0.3215117327
+posthoc_descriptive_transfer_behavior,100,500,50,0.9936618607,0.8827873053,0.105,0.3625,2.299549592,0.4121800071,0.08084128202,0.642,0.796,-0.1651064203,0.2518635595
+posthoc_descriptive_transfer_behavior,200,500,50,0.9932634828,0.6983610183,0.1025,0.51625,2.298394329,0.582504269,0.1973034455,0.134,0.792,-0.102603522,0.478299217
