@@ -1,0 +1,9 @@
+evidence_block,controller,budget,n_runs,median_transition_gen,median_terminal_inclusive_updates,median_action_effective_updates,offline_objective_evaluations,interpretation
+E3,AdaptiveSAOS,50,500,35.0,1.0,0.0,0,adaptive handover
+E3,PPOOnly,50,500,-1.0,4.0,3.0,0,generation-zero PPO pressure test
+E3,AdaptiveSAOS,100,500,70.0,2.0,1.0,0,adaptive handover
+E3,PPOOnly,100,500,-1.0,7.0,6.0,0,generation-zero PPO pressure test
+E3,AdaptiveSAOS,200,500,71.0,8.0,8.0,0,adaptive handover
+E3,PPOOnly,200,500,-1.0,13.0,12.0,0,generation-zero PPO pressure test
+E4,EnhancedBC_R8,200,100,78.0,16.0,15.0,0,short-rollout within-run PPO pressure test
+E5,Two-pass transferred PPO,200,2000,,16369.0,,40200000,"cross-instance data-supply pressure test; totals, not medians"

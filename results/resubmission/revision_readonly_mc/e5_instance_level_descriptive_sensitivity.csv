@@ -1,0 +1,7 @@
+contrast,budget,n_checkpoint_dependent_instances,median_delta,mean_delta,wins,ties,losses,wilcoxon_p_raw_descriptive,independence_warning,holm_adjusted_descriptive
+online_minus_scratch_g50,50,50,-0.043320502935522254,-0.03028540120062428,13,0,37,0.0010251160635235124,instances share fold-specific checkpoints and the five training sets overlap,0.0010251160635235124
+online_minus_ucb_g50,50,50,-0.048218377610095245,-0.03947267021929068,10,0,40,3.818192634774675e-05,instances share fold-specific checkpoints and the five training sets overlap,7.63638526954935e-05
+online_minus_scratch_g100,100,50,-0.08391751649508755,-0.0712919431540213,8,0,42,8.22989321136447e-09,instances share fold-specific checkpoints and the five training sets overlap,2.468967963409341e-08
+online_minus_ucb_g100,100,50,-0.0888361037109628,-0.0797235113796866,6,0,44,2.81308842886574e-09,instances share fold-specific checkpoints and the five training sets overlap,1.125235371546296e-08
+online_minus_scratch_g200,200,50,-0.1598724134277652,-0.16747033795506913,3,0,47,1.9539925233402755e-13,instances share fold-specific checkpoints and the five training sets overlap,9.769962616701378e-13
+online_minus_ucb_g200,200,50,-0.15465189954785497,-0.16776185905178273,3,0,47,7.638334409421077e-14,instances share fold-specific checkpoints and the five training sets overlap,4.583000645652646e-13

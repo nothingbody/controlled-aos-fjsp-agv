@@ -1,0 +1,18 @@
+{
+  "guard_handover_runs": 484,
+  "guard_runs_with_zero_effective_updates": 484,
+  "n_runs": 500,
+  "one_action_effective_update_runs": 10,
+  "stagnation_handover_runs": 16,
+  "stagnation_runs_with_one_effective_update": 10,
+  "stagnation_runs_with_zero_effective_updates": 6,
+  "transition_generation_counts": {
+    "30": 1,
+    "31": 1,
+    "32": 6,
+    "33": 2,
+    "34": 4,
+    "35": 486
+  },
+  "zero_action_effective_update_runs": 490
+}

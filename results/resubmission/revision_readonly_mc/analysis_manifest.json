@@ -1,0 +1,19 @@
+{
+  "inferential_boundary": "All added analyses are descriptive/read-only. E5 instance-level p-values are not confirmatory because checkpoint dependence and overlapping fold training sets violate an independent-instance interpretation.",
+  "outputs": [
+    "analysis_manifest.json",
+    "e1_bc_vs_nobc_behavior.csv",
+    "e5_instance_level_descriptive_sensitivity.csv",
+    "e5_run_level_mixed_sensitivity.csv",
+    "g50_update_reconciliation.json",
+    "ppo_data_supply_ladder.csv"
+  ],
+  "read_only_inputs": [
+    "results/resubmission/v5/e1_aos/analysis/runs_with_common_hv.csv",
+    "results/resubmission/v5/e3_budget/runs.csv",
+    "results/resubmission/v6_mechanism/runs.csv",
+    "results/resubmission/v7_cross_instance/analysis/contrast_instance_blocks.csv",
+    "results/resubmission/v7_cross_instance/analysis/runs_with_fixed_indicators.csv"
+  ],
+  "script": "scripts/audit_revision_mc1_mc3_mc5.py"
+}

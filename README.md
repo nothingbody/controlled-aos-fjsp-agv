@@ -90,7 +90,8 @@ The final results do not support uniform SA-AOS superiority.
 
 - At 50 generations, AdaptiveSAOS ranks close to UCBOnly and significantly outperforms several PPO or fixed-transition controls.
 - At 100 and 200 generations, UCBOnly has a better mean rank, and the paired common-HV comparison favors UCBOnly after Holm correction.
-- The behavior-cloning handover changes the operator-selection distribution, but it does not provide a stable optimization advantage over `AdaptiveNoBC`.
+- The behavior-cloning handover changes the operator-selection distribution, but it does not provide a stable optimization advantage over `AdaptiveNoBC`. A read-only E1 audit finds lower action-count entropy for SA-AOS than for the no-BC control in all 50 instance blocks; this is a persistent behavioral signature, not a causal attribution.
+- The median number of action-effective PPO updates is 0, 1, and 8 for SA-AOS at 50, 100, and 200 generations. Generation-zero PPO-only increases those medians to 3, 6, and 12, and the E4 rollout-8 intervention reaches 15 at 200 generations; neither pressure test establishes learned-controller superiority.
 - The six reward definitions in E2 are not significantly different in the instance-blocked Friedman test.
 - In E4, exact UCB-context features improve in-sample behavior-cloning fit but do not yield a detected hypervolume gain.
 - Rollout 8 produces more action-effective PPO updates than rollout 16 or 32, but its prespecified rollout contrast does not survive Holm correction.
@@ -100,6 +101,7 @@ The final results do not support uniform SA-AOS superiority.
 - All pretraining episodes use 200 generations. The 50- and 100-generation tests therefore combine cross-instance and cross-horizon transfer; only the 200-generation test is horizon matched.
 - E5 pretraining consumes 2,000 episodes and 40.2 million objective evaluations; more offline data does not recover this frozen transfer design.
 - A post-hoc E5 behavior audit finds that the transferred policy remains strongly concentrated on `UniformMA`, whereas scratch PPO stays close to maximum ten-action entropy. This identifies a persistent behavioral prior but does not establish that the concentration causes the held-out HV loss.
+- Read-only instance-level and run-level mixed-model sensitivities preserve the adverse E5 direction. They remain descriptive because instances share fold-specific checkpoints, training sets overlap, and all six mixed models issue variance-boundary warnings.
 - In E4-R, none of the ten fixed-reference hypervolume contrasts is significant after Holm correction. The three PPO-versus-UCB medians remain negative; their raw two-sided p-values are 0.0325--0.0382, but their adjusted p-values are 0.0974.
 - Across the nine contrasts shared with E4, E4-R reproduces seven effect directions and eight familywise significance decisions. The original generation-200 PPO-versus-UCB significance does not replicate, although its adverse direction does.
 
@@ -138,6 +140,10 @@ python scripts/analyze_e5_transfer_behavior.py
 python scripts/analyze_e5_fold_sign_sensitivity_v7.py
 python scripts/analyze_e5_replica_extremes_v7.py
 
+# Read-only MC1/MC3/MC5 revision audit: PPO data supply, BC/no-BC behavior,
+# G=50 count reconciliation, and descriptive E5 sensitivities.
+python scripts/audit_revision_mc1_mc3_mc5.py
+
 # Checkpoint-process audit requires the archived pass-1 and terminal checkpoint
 # objects; it never changes an optimizer state.
 python scripts/audit_e5_checkpoint_process_v7.py --checkpoint-dir /path/to/checkpoints
@@ -163,6 +169,7 @@ results/resubmission/v5/         E1--E3 CSVs, fronts, logs, statistics, and audi
 results/resubmission/v6_mechanism/ E4 raw results, fronts, audits, and amended analysis
 results/resubmission/v7_cross_instance/ E5 ledgers, held-out rows, and analysis
 results/resubmission/v8_e4_replication/ E4-R frozen reference and formal outputs
+results/resubmission/revision_readonly_mc/ Read-only revision diagnostics
 ```
 
 The primary completion marker is
@@ -196,6 +203,13 @@ denominator checks, and pass-1/terminal checkpoint parameter diagnostics. The
 archived checkpoint ledgers did not retain episode reward/HV, policy loss,
 value loss, clip fraction, approximate KL, or intermediate checkpoints; those
 training curves cannot be reconstructed retrospectively and are not claimed.
+
+The read-only revision audit in
+`results/resubmission/revision_readonly_mc/` reports the PPO data-supply
+ladder, E1 BC-versus-no-BC behavioral contrasts, the 50-generation handover
+count reconciliation, and descriptive E5 instance-level and mixed-model
+sensitivities. It does not alter any frozen run, front, checkpoint, protocol,
+or confirmatory family.
 
 The earlier primary-plus-E4 archive remains available as
 [GitHub release v6.0.1](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v6.0.1).
