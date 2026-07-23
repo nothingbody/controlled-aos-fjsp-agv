@@ -77,8 +77,8 @@ held-out runs as inferential replicates.
 ## Reproducibility release
 
 The immutable
-[`v8.1.0-reproducibility`](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v8.1.0-reproducibility)
-release completes the public E5 evidence package without adding thousands of
+[`v8.1.1-reproducibility`](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v8.1.1-reproducibility)
+release adds the MIT license and completes the public E5 evidence package without adding thousands of
 binary files to Git history:
 
 | Release asset | Contents | SHA-256 |
@@ -263,8 +263,8 @@ or confirmatory family.
 
 The earlier primary-plus-E4 archive remains available as
 [GitHub release v6.0.1](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v6.0.1).
-The completed source tree and E4-R evidence are fixed by release
-`v8.1.0-reproducibility`; its three downloadable assets add the E5 raw fronts,
+The completed source tree, licensing metadata, and E4-R evidence are fixed by
+release `v8.1.1-reproducibility`; its three downloadable assets add the E5 raw fronts,
 evaluation journals, and auditable checkpoint states.
 
 Manuscript text, submission packages, response letters, graphical abstracts,
@@ -286,6 +286,8 @@ checkpoints.
 
 ## License
 
-No open-source license has been selected for the original project code yet. Copyright remains with the author unless a root license file is added explicitly. The benchmark files under `data/benchmarks/` retain their upstream MIT license and attribution.
-
+The original project code and documentation are released under the
+[MIT License](LICENSE), copyright (c) 2026 Qingyou Wang. Third-party benchmark
+files under `data/benchmarks/` retain their upstream MIT license, copyright,
+and attribution described in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
