@@ -1,0 +1,12 @@
+# Direct scientific-stack versions observed in post-campaign verification.
+# This is a compatibility constraint set, not a claim that one transitive
+# environment was frozen before every experiment block.
+numpy==2.4.3
+pandas==3.0.3
+scipy==1.18.0
+matplotlib==3.11.1
+pymoo==0.6.2
+torch==2.11.0
+PyYAML==6.0.3
+statsmodels==0.14.6
+pytest==9.1.1

@@ -6,6 +6,8 @@
 *.json text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
+*.cff text eol=lf
+*.sha256 text eol=lf
 *.pkl binary
 *.pdf binary
 *.docx binary

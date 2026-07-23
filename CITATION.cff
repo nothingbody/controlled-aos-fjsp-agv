@@ -3,14 +3,14 @@ message: >-
   If you use this code or the archived experiment results, please cite the
   associated manuscript and this repository release.
 title: >-
-  Controlled evaluation of stage-aware adaptive operator selection under
-  finite budgets for multi-objective flexible job-shop scheduling with AGVs
+  Finite-data limits of generation-level learned operator selection in
+  multi-objective FJSP with AGVs
 type: software
 authors:
   - family-names: Wang
     given-names: Qingyou
-version: 6.0.1
-date-released: 2026-07-22
+version: 8.1.0
+date-released: 2026-07-23
 repository-code: https://github.com/nothingbody/controlled-aos-fjsp-agv
 keywords:
   - adaptive operator selection
