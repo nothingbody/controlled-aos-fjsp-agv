@@ -1,0 +1,7 @@
+contrast,front_extreme,n_instance_budget_blocks,minimum_comparator_extreme,maximum_comparator_extreme,nonpositive_denominators
+online_minus_scratch,best_energy_index,150,1585.7984097020772,181336.71272511303,0
+online_minus_scratch,best_makespan,150,45.33456276001232,4034.865137653376,0
+online_minus_scratch,best_workload_imbalance,150,1.999999999999986,522.9999999999998,0
+online_minus_ucb,best_energy_index,150,1592.9578437432815,180990.96704153216,0
+online_minus_ucb,best_makespan,150,45.26572363254692,4020.9696886637284,0
+online_minus_ucb,best_workload_imbalance,150,1.9999999999999576,522.9999999999998,0

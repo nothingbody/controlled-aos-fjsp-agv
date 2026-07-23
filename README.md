@@ -1,4 +1,4 @@
-# Controlled Evaluation of Stage-Aware Adaptive Operator Selection for FJSP-AGV
+# Controlled Finite-Budget Evaluation of UCB-to-BC-to-PPO Operator Selection
 
 This repository contains the code, frozen protocols, run logs, Pareto fronts,
 and analysis artifacts for the controlled evaluation of
@@ -95,8 +95,8 @@ The final results do not support uniform SA-AOS superiority.
 - In E4, exact UCB-context features improve in-sample behavior-cloning fit but do not yield a detected hypervolume gain.
 - Rollout 8 produces more action-effective PPO updates than rollout 16 or 32, but its prespecified rollout contrast does not survive Holm correction.
 - The exploratory rollout-8 versus UCB-only comparison is post hoc, unadjusted, and outside every confirmatory family; it does not support a superiority claim.
-- In E5, online pretrained PPO is worse than UCB-only and scratch PPO on held-out fold instances at 50, 100, and 200 generations; all six Holm-adjusted transfer contrasts remain significant in the adverse direction.
-- Every leave-one-fold-out transfer estimate is negative, while online fine-tuning is not statistically distinguished from freezing the transferred policy.
+- In E5, descriptive online-transferred-PPO effects are adverse relative to UCB-only and scratch adaptive PPO in all five held-out folds at all three budgets. Exact five-fold sign-flip inference attains raw `p = 0.0625`; Holm-adjusted values are 0.125 in the primary family and 0.250 in the secondary family, so no familywise-significant transfer disadvantage is claimed.
+- Every leave-one-fold-out transfer estimate is negative, while exact fold-level inference does not distinguish online fine-tuning from freezing the transferred policy.
 - E5 pretraining consumes 2,000 episodes and 40.2 million objective evaluations; more offline data does not recover this frozen transfer design.
 - A post-hoc E5 behavior audit finds that the transferred policy remains strongly concentrated on `UniformMA`, whereas scratch PPO stays close to maximum ten-action entropy. This identifies a persistent behavioral prior but does not establish that the concentration causes the held-out HV loss.
 - In E4-R, none of the ten fixed-reference hypervolume contrasts is significant after Holm correction. The three PPO-versus-UCB medians remain negative; their raw two-sided p-values are 0.0325--0.0382, but their adjusted p-values are 0.0974.
@@ -105,8 +105,9 @@ The final results do not support uniform SA-AOS superiority.
 The evidence therefore supports a **conditional design boundary** for
 within-run and cross-instance UCB-to-PPO operator control. E4 diagnoses
 mechanisms using ten inferential instances; E4-R repeats the frozen contrast
-family on 30 new inferential instances; E5 tests 50 out-of-fold instance blocks
-under one frozen transfer protocol. E4-R was specified after the original E4
+family on 30 new inferential instances; E5 has five top-level fold clusters
+containing 50 descriptive out-of-fold instance blocks under one frozen transfer
+protocol. E4-R was specified after the original E4
 outcomes were known and is therefore a bounded, outcome-informed replication,
 not an independent discovery study. Nonsignificant mechanism contrasts
 establish neither absence of an effect nor practical equivalence.
@@ -133,6 +134,12 @@ python scripts/analyze_mechanism_robustness_v6_1.py
 python experiments/run_cross_instance_pretraining_v7.py --phase all
 python scripts/analyze_cross_instance_pretraining_v7.py
 python scripts/analyze_e5_transfer_behavior.py
+python scripts/analyze_e5_fold_cluster_inference_v7.py
+python scripts/analyze_e5_replica_extremes_v7.py
+
+# Checkpoint-process audit requires the archived pass-1 and terminal checkpoint
+# objects; it never changes an optimizer state.
+python scripts/audit_e5_checkpoint_process_v7.py --checkpoint-dir /path/to/checkpoints
 
 # E4-R/v8: reproduce the completed new-instance replication and analysis.
 python experiments/run_e4_replication_v8.py
@@ -180,6 +187,14 @@ run keys, 1,350 fronts, and 1,350 evaluation journals. Its front-manifest
 SHA-256 is
 `803c72ffe5bf5434ad5f0d55579ad08c5de1f418ade562b23a541c2d2c8dec47`,
 and the fixed-reference confirmatory audit reports no invalid run.
+
+The additional E5 audit tables in
+`results/resubmission/v7_cross_instance/analysis/` report exact fold-cluster
+inference, checkpoint-replica/assigned-seed sensitivities, front-extreme
+denominator checks, and pass-1/terminal checkpoint parameter diagnostics. The
+archived checkpoint ledgers did not retain episode reward/HV, policy loss,
+value loss, clip fraction, approximate KL, or intermediate checkpoints; those
+training curves cannot be reconstructed retrospectively and are not claimed.
 
 The earlier primary-plus-E4 archive remains available as
 [GitHub release v6.0.1](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v6.0.1).

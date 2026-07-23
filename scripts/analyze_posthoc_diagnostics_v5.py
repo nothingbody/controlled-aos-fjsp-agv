@@ -258,24 +258,29 @@ def family_summary(table: pd.DataFrame) -> pd.DataFrame:
 
 def plot_paired_differences(table: pd.DataFrame) -> None:
     plot = table.sort_values("delta_hv_sa_aos_minus_ucb").reset_index(drop=True)
-    colors = plot["family"].map({"Mk": "#D55E00", "la": "#0072B2"})
     fig, ax = plt.subplots(figsize=(7.2, 4.6), constrained_layout=True)
     ax.axhline(0.0, color="0.25", linewidth=0.9)
-    ax.scatter(
-        np.arange(len(plot)),
-        plot["delta_hv_sa_aos_minus_ucb"],
-        c=colors,
-        s=28,
-        edgecolors="white",
-        linewidths=0.45,
-        zorder=3,
-    )
+    family_styles = {
+        "Mk": {"color": "#D55E00", "marker": "o", "label": "Brandimarte (Mk)"},
+        "la": {"color": "#0072B2", "marker": "^", "label": "Hurink edata (la)"},
+    }
+    for family, style in family_styles.items():
+        mask = plot["family"].eq(family)
+        ax.scatter(
+            np.flatnonzero(mask),
+            plot.loc[mask, "delta_hv_sa_aos_minus_ucb"],
+            color=style["color"],
+            marker=style["marker"],
+            s=30,
+            edgecolors="white",
+            linewidths=0.45,
+            label=style["label"],
+            zorder=3,
+        )
     ax.set_xlabel("Instances ordered by paired difference")
     ax.set_ylabel(r"Common-reference $\Delta$HV (SA-AOS $-$ UCB-only)")
     ax.grid(axis="y", color="0.88", linewidth=0.6)
     ax.spines[["top", "right"]].set_visible(False)
-    for family, color in [("Mk", "#D55E00"), ("la", "#0072B2")]:
-        ax.scatter([], [], color=color, s=28, label=family)
     ax.legend(frameon=False, ncol=2, loc="lower right")
     fig.savefig(OUT / "paired_difference_sa_aos_vs_ucb.pdf")
     fig.savefig(OUT / "paired_difference_sa_aos_vs_ucb.png", dpi=300)

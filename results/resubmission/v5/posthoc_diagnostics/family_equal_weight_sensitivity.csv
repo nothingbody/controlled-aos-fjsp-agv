@@ -1,0 +1,4 @@
+summary,n_instances,median_delta_HV,win_rate,tie_rate,loss_rate
+Brandimarte,10,-0.005770671491336088,0.4,0.0,0.6
+Hurink_edata,40,-0.013732889066594423,0.25,0.0,0.75
+equal_family_weight,50,-0.009751780278965255,0.325,0.0,0.675
