@@ -1,0 +1,21 @@
+{
+  "coincident_displayed_endpoints": true,
+  "interaction_definition": "(EnhancedBC-BasePaddedBC)-(EnhancedNoBC-BasePaddedNoBC)",
+  "interpretation": "The two statistics use different instance vectors and independent bootstrap seeds. Their percentile endpoints coincide because the small-sample bootstrap quantiles select the same observed values.",
+  "state_by_bc_interaction": {
+    "bootstrap_seed": 20260731,
+    "median": -0.005585065403956202,
+    "percentile_ci95": [
+      -0.01698624552858885,
+      0.01375058086530978
+    ]
+  },
+  "state_with_bc": {
+    "bootstrap_seed": 20260723,
+    "median": -4.764928405420754e-05,
+    "percentile_ci95": [
+      -0.01698624552858885,
+      0.01375058086530978
+    ]
+  }
+}

@@ -15,10 +15,10 @@ import pandas as pd
 
 
 DISPLAY = {
-    "UCBOnly": ("UCB-only", "#1F5A9D", "o", "-"),
-    "ScratchNoBC_R16": ("Scratch adaptive PPO", "#4D4D4D", "s", "--"),
-    "XPrePPO_Frozen": ("Frozen transferred PPO", "#3A8F95", "^", "-."),
-    "XPrePPO_Online_R16": ("Online transferred PPO", "#B64342", "D", ":"),
+    "UCBOnly": ("UCB", "UCB-only", "#1F5A9D", "o"),
+    "ScratchNoBC_R16": ("Scratch", "Scratch adaptive PPO", "#4D4D4D", "s"),
+    "XPrePPO_Frozen": ("Frozen", "Frozen transferred PPO", "#3A8F95", "^"),
+    "XPrePPO_Online_R16": ("Online", "Online transferred PPO", "#B64342", "D"),
 }
 
 
@@ -59,27 +59,47 @@ def main() -> None:
             "axes.spines.right": False,
         }
     )
-    fig, ax = plt.subplots(figsize=(7.2, 3.65))
-    for variant, (label, color, marker, linestyle) in DISPLAY.items():
-        block = selected.loc[selected["variant"] == variant].sort_values("Budget")
-        ax.plot(
-            block["Budget"],
-            block["HV_fixed_median"],
-            label=label,
-            color=color,
-            marker=marker,
-            linestyle=linestyle,
-            linewidth=1.8,
-            markersize=4.5,
+    budgets = [50, 100, 200]
+    variants = list(DISPLAY)
+    fig, axes = plt.subplots(
+        1,
+        3,
+        figsize=(7.2, 2.95),
+        sharey=True,
+        gridspec_kw={"wspace": 0.08},
+    )
+    for ax, budget in zip(axes, budgets):
+        block = selected.loc[selected["Budget"].astype(int) == budget].set_index(
+            "variant"
         )
+        for x_position, variant in enumerate(variants):
+            short_label, full_label, color, marker = DISPLAY[variant]
+            value = float(block.loc[variant, "HV_fixed_median"])
+            ax.scatter(
+                x_position,
+                value,
+                s=36,
+                color=color,
+                edgecolor="white",
+                linewidth=0.6,
+                marker=marker,
+                zorder=3,
+                label=full_label,
+            )
+        ax.set_title(f"$G={budget}$", fontsize=9.5, pad=5)
+        ax.set_xticks(range(len(variants)))
+        ax.set_xticklabels(
+            [DISPLAY[variant][0] for variant in variants],
+            rotation=28,
+            ha="right",
+        )
+        ax.set_xlim(-0.55, len(variants) - 0.45)
+        ax.set_ylim(0.925, 1.105)
+        ax.grid(axis="y", color="#D9D9D9", linewidth=0.6, alpha=0.85)
+        ax.tick_params(axis="x", length=0)
 
-    ax.set_xlabel("Generation budget")
-    ax.set_ylabel("Median fixed-reference HV")
-    ax.set_xticks([50, 100, 200])
-    ax.set_ylim(0.925, 1.105)
-    ax.grid(axis="y", color="#D9D9D9", linewidth=0.6, alpha=0.8)
-    ax.legend(frameon=False, ncol=2, loc="lower left")
-    fig.tight_layout()
+    axes[0].set_ylabel("Median fixed-reference HV")
+    fig.subplots_adjust(left=0.085, right=0.995, bottom=0.24, top=0.90)
 
     out_dir = args.out_dir.resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
