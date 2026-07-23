@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release_tag": "v8.1.0-reproducibility",
+  "repository": "https://github.com/nothingbody/controlled-aos-fjsp-agv",
+  "release_url": "https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v8.1.0-reproducibility",
+  "protocol": "saos_cross_instance_pretrained_ppo_v7_20260722",
+  "pipeline_complete_sha256": "557354f2c81799c20bb64035a7bb3d39cb267dbdd58118d65617092b2d8d7b78",
+  "assets": [
+    {
+      "name": "e5-v7-fronts-6000.tar.gz",
+      "sha256": "52b095730318e9fb7244e0246bcd16743a4a7354ceb61159e781cda570208cc3",
+      "size_bytes": 14981763,
+      "file_count": 6000,
+      "extracts_to": "fronts/",
+      "role": "Held-out E5 Pareto fronts"
+    },
+    {
+      "name": "e5-v7-evaluation-journals-6000.tar.gz",
+      "sha256": "c63bace4f7d768d53a004dd42ea0c2418111a51abb1a703efccdd2474bec025c",
+      "size_bytes": 2803407,
+      "file_count": 6000,
+      "extracts_to": "evaluation_journal/",
+      "role": "Held-out E5 per-run evaluation journals"
+    },
+    {
+      "name": "e5-v7-checkpoints-pass1-terminal-50.tar.gz",
+      "sha256": "09e2eab4a5805cdbf9c990e11648a7376995fa356b2afa58c84855f4e623b143",
+      "size_bytes": 23560104,
+      "file_count": 100,
+      "metadata_file_count": 50,
+      "checkpoint_object_count": 50,
+      "extracts_to": "checkpoints/",
+      "role": "Pass-1 and terminal objects for each of the 25 E5 training chains"
+    }
+  ],
+  "archive_policy": {
+    "included_checkpoint_stages": [
+      "pass1",
+      "terminal"
+    ],
+    "omitted_checkpoint_stages": [
+      "superseded per-episode progress objects"
+    ],
+    "reason": "Pass-1 and terminal checkpoints are sufficient for the reported checkpoint-process audit; retaining every superseded progress object would add about 1.3 GB without changing any reported analysis."
+  },
+  "integrity": {
+    "evaluation_rows": 6000,
+    "evaluation_unique_keys": 6000,
+    "pretraining_rows": 2000,
+    "pretraining_unique_keys": 2000,
+    "terminal_checkpoints": 25,
+    "front_manifest_sha256": "2971a6efed2ad9bfb4618cc6dfc47ddfbac9544803975db571f9982c95b011db",
+    "checkpoint_manifest_sha256": "0960e160a42e8c004512f669979b7875c177750d77601c7e92920d883a814640"
+  }
+}

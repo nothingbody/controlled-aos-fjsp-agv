@@ -1,7 +1,8 @@
 # Finite-Data Limits of Generation-Level Learned Operator Selection
 
-This repository contains the code, frozen protocols, run logs, Pareto fronts,
-and analysis artifacts for the controlled evaluation of
+This repository and its versioned release assets contain the code, frozen
+protocols, run logs, Pareto fronts, checkpoint evidence, and analysis
+artifacts for the controlled evaluation of
 stage-aware adaptive operator selection in multi-objective flexible job-shop
 scheduling with automated guided vehicles (FJSP-AGV). The archive covers the
 18,500-run primary campaign, the separately frozen 1,100-run E4 mechanism
@@ -73,6 +74,29 @@ independent evidence or as a second significance claim. The E5 total excludes
 its 2,000 pretraining episodes because those episodes are not pooled with
 held-out runs as inferential replicates.
 
+## Reproducibility release
+
+The immutable
+[`v8.1.0-reproducibility`](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v8.1.0-reproducibility)
+release completes the public E5 evidence package without adding thousands of
+binary files to Git history:
+
+| Release asset | Contents | SHA-256 |
+|---|---|---|
+| `e5-v7-fronts-6000.tar.gz` | 6,000 held-out Pareto fronts | `52b095730318e9fb7244e0246bcd16743a4a7354ceb61159e781cda570208cc3` |
+| `e5-v7-evaluation-journals-6000.tar.gz` | 6,000 evaluation journals | `c63bace4f7d768d53a004dd42ea0c2418111a51abb1a703efccdd2474bec025c` |
+| `e5-v7-checkpoints-pass1-terminal-50.tar.gz` | 50 metadata records and their 50 checkpoint objects | `09e2eab4a5805cdbf9c990e11648a7376995fa356b2afa58c84855f4e623b143` |
+
+The checkpoint asset preserves the pass-1 and terminal states for all 25
+training chains. Superseded per-episode progress objects are omitted because
+they are not used by any reported analysis. Their omission does not alter the
+pretraining ledger, terminal checkpoint hashes, or held-out evaluations.
+Machine-readable sizes, counts, hashes, and archive policy are recorded in
+[`archive_manifest_v8.1.0.json`](results/resubmission/v7_cross_instance/archive_manifest_v8.1.0.json).
+See [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for download, verification, and
+extraction commands, and [`ENVIRONMENT.md`](ENVIRONMENT.md) for environment
+provenance and its limits.
+
 The primary design and analysis rules are in
 [`SCI_Paper/RESUBMISSION_EXPERIMENT_PROTOCOL.md`](SCI_Paper/RESUBMISSION_EXPERIMENT_PROTOCOL.md).
 The E4 protocol and the dated reference-point amendment are in
@@ -142,8 +166,11 @@ establish neither absence of an effect nor practical equivalence.
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt -c constraints-postcampaign-20260723.txt
 python -m pytest -q
+
+# Verify the separately downloaded E5 release assets before extraction.
+python scripts/verify_reproducibility_release.py /path/to/downloaded/assets
 
 # Full validated pipeline; choose a worker count permitted by the host.
 WORKERS=12 bash scripts/run_remote_resubmission_pipeline.sh
@@ -168,7 +195,8 @@ python scripts/audit_revision_mc1_mc3_mc5.py
 
 # Checkpoint-process audit requires the archived pass-1 and terminal checkpoint
 # objects; it never changes an optimizer state.
-python scripts/audit_e5_checkpoint_process_v7.py --checkpoint-dir /path/to/checkpoints
+python scripts/audit_e5_checkpoint_process_v7.py \
+  --checkpoint-dir results/resubmission/v7_cross_instance/checkpoints
 
 # E4-R/v8: reproduce the completed new-instance replication and analysis.
 python experiments/run_e4_replication_v8.py
@@ -189,7 +217,7 @@ tests/                           Integrity and regression tests
 SCI_Paper/                       Experiment protocols and reproducibility audits
 results/resubmission/v5/         E1--E3 CSVs, fronts, logs, statistics, and audits
 results/resubmission/v6_mechanism/ E4 raw results, fronts, audits, and amended analysis
-results/resubmission/v7_cross_instance/ E5 ledgers, held-out rows, and analysis
+results/resubmission/v7_cross_instance/ E5 ledgers, held-out rows, analysis, and release manifest
 results/resubmission/v8_e4_replication/ E4-R frozen reference and formal outputs
 results/resubmission/revision_readonly_mc/ Read-only revision diagnostics
 ```
@@ -235,8 +263,9 @@ or confirmatory family.
 
 The earlier primary-plus-E4 archive remains available as
 [GitHub release v6.0.1](https://github.com/nothingbody/controlled-aos-fjsp-agv/releases/tag/v6.0.1).
-The completed E5 and E4-R evidence packages are published through the current
-repository history and its accompanying pull request.
+The completed source tree and E4-R evidence are fixed by release
+`v8.1.0-reproducibility`; its three downloadable assets add the E5 raw fronts,
+evaluation journals, and auditable checkpoint states.
 
 Manuscript text, submission packages, response letters, graphical abstracts,
 and journal-production assets are intentionally excluded from this public
@@ -249,6 +278,11 @@ The source FJSP benchmarks do not provide factory layouts or measured power data
 The 130 raw Brandimarte and Hurink benchmark files were byte-verified against the MIT-licensed SchedulingLab `fjsp-instances` repository at commit `ac4c3402312bfbeafcf4472d78be567d4e6b46ab`. Only the 10 Brandimarte and 40 Hurink edata instances are part of the frozen v5 experiment. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and the bundled upstream license for provenance and attribution.
 
 Saved Pareto fronts use Python pickle files for exact archival compatibility. Pickle can execute code while loading; load these files only from a trusted checkout. The CSV summaries and audit tables can be inspected without deserializing the fronts.
+
+E5 checkpoint objects are also deserialized by PyTorch and carry the same
+trust requirement. Verify every downloaded release asset with
+`scripts/verify_reproducibility_release.py` before loading either fronts or
+checkpoints.
 
 ## License
 
